@@ -1,17 +1,19 @@
 import { ArrowRight } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
+import shammahImg from "@/assets/shammah-academy.jpg";
+import loveofgodImg from "@/assets/loveofgod-realestate.jpg";
 
 const projects = [
   {
     tag: "Education",
-    thumb: "bg-gradient-to-br from-blue-500 via-indigo-600 to-purple-700",
+    image: shammahImg,
     title: "Shammah Academy",
     desc: "A full school website with enrolment inquiry forms and a parent-focused digital presence.",
     link: "https://shammah-rooted-excellence.vercel.app/",
   },
   {
     tag: "Real Estate",
-    thumb: "bg-gradient-to-br from-orange-500 via-red-500 to-rose-700",
+    image: loveofgodImg,
     title: "Love of God Industries",
     desc: "A land sales platform with inquiry forms and property listings for a real estate company.",
     link: "https://loveofgod01.vercel.app/",
@@ -29,7 +31,7 @@ const Work = () => (
         {projects.map((p) => (
           <ScrollReveal key={p.title}>
             <div className="rounded-xl border border-border overflow-hidden bg-card hover:border-primary/60 hover:glow-blue transition-all duration-300 group">
-              <div className={`${p.thumb} h-52`} />
+              <img src={p.image} alt={p.title} className="h-52 w-full object-cover" loading="lazy" width={800} height={512} />
               <div className="p-7">
                 <span className="inline-block text-xs font-bold px-3 py-1 rounded-full mb-3 bg-primary/20 text-primary">{p.tag}</span>
                 <h3 className="text-xl font-bold text-foreground mb-2">{p.title}</h3>
