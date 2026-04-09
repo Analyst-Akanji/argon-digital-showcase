@@ -31,7 +31,7 @@ const Work = () => (
         {projects.map((p) => (
           <ScrollReveal key={p.title}>
             <div className="rounded-xl border border-border overflow-hidden bg-card hover:border-primary/60 hover:glow-blue transition-all duration-300 group">
-              <div className={`${p.thumb} h-52`} />
+              <img src={p.image} alt={p.title} className="h-52 w-full object-cover" loading="lazy" width={800} height={512} />
               <div className="p-7">
                 <span className="inline-block text-xs font-bold px-3 py-1 rounded-full mb-3 bg-primary/20 text-primary">{p.tag}</span>
                 <h3 className="text-xl font-bold text-foreground mb-2">{p.title}</h3>
