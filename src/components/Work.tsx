@@ -1,10 +1,12 @@
 import { ArrowRight } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
+import shammahImg from "@/assets/shammah-academy.jpg";
+import loveofgodImg from "@/assets/loveofgod-realestate.jpg";
 
 const projects = [
   {
     tag: "Education",
-    thumb: "bg-gradient-to-br from-blue-500 via-indigo-600 to-purple-700",
+    image: shammahImg,
     title: "Shammah Academy",
     desc: "A full school website with enrolment inquiry forms and a parent-focused digital presence.",
     link: "https://shammah-rooted-excellence.vercel.app/",
