@@ -1,18 +1,17 @@
 import { ArrowRight } from "lucide-react";
+import ScrollReveal from "./ScrollReveal";
 
 const projects = [
   {
     tag: "Education",
-    color: "bg-primary/10 text-primary",
-    thumb: "bg-gradient-to-br from-primary/60 to-primary/20",
+    thumb: "bg-gradient-to-br from-blue-500 via-indigo-600 to-purple-700",
     title: "Shammah Academy",
     desc: "A full school website with enrolment inquiry forms and a parent-focused digital presence.",
     link: "https://shammah-rooted-excellence.vercel.app/",
   },
   {
     tag: "Real Estate",
-    color: "bg-accent/10 text-accent",
-    thumb: "bg-gradient-to-br from-accent/60 to-accent/20",
+    thumb: "bg-gradient-to-br from-orange-500 via-red-500 to-rose-700",
     title: "Love of God Industries",
     desc: "A land sales platform with inquiry forms and property listings for a real estate company.",
     link: "https://loveofgod01.vercel.app/",
@@ -20,23 +19,27 @@ const projects = [
 ];
 
 const Work = () => (
-  <section id="work" className="bg-card py-20">
+  <section id="work" className="bg-background py-24">
     <div className="container mx-auto px-4">
-      <p className="text-xs font-semibold tracking-widest text-primary text-center mb-2">OUR WORK</p>
-      <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-12">Projects we're proud of</h2>
+      <ScrollReveal>
+        <p className="text-xs font-bold tracking-[0.2em] text-primary text-center mb-3 uppercase">Our Work</p>
+        <h2 className="text-3xl md:text-5xl font-black text-foreground text-center mb-14">Projects we're proud of</h2>
+      </ScrollReveal>
       <div className="grid md:grid-cols-2 gap-8">
         {projects.map((p) => (
-          <div key={p.title} className="rounded-xl border border-border overflow-hidden hover:shadow-md transition-shadow">
-            <div className={`${p.thumb} h-48`} />
-            <div className="p-6">
-              <span className={`inline-block text-xs font-semibold px-3 py-1 rounded-full mb-3 ${p.color}`}>{p.tag}</span>
-              <h3 className="text-xl font-bold text-foreground mb-2">{p.title}</h3>
-              <p className="text-muted-foreground text-sm mb-4">{p.desc}</p>
-              <a href={p.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline">
-                View live site <ArrowRight size={14} />
-              </a>
+          <ScrollReveal key={p.title}>
+            <div className="rounded-xl border border-border overflow-hidden bg-card hover:border-primary/60 hover:glow-blue transition-all duration-300 group">
+              <div className={`${p.thumb} h-52`} />
+              <div className="p-7">
+                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full mb-3 bg-primary/20 text-primary">{p.tag}</span>
+                <h3 className="text-xl font-bold text-foreground mb-2">{p.title}</h3>
+                <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{p.desc}</p>
+                <a href={p.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm font-bold text-primary hover:underline group-hover:gap-2.5 transition-all">
+                  View live site <ArrowRight size={14} />
+                </a>
+              </div>
             </div>
-          </div>
+          </ScrollReveal>
         ))}
       </div>
     </div>
