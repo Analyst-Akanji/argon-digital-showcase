@@ -13,7 +13,7 @@ const projects = [
   },
   {
     tag: "Real Estate",
-    thumb: "bg-gradient-to-br from-orange-500 via-red-500 to-rose-700",
+    image: loveofgodImg,
     title: "Love of God Industries",
     desc: "A land sales platform with inquiry forms and property listings for a real estate company.",
     link: "https://loveofgod01.vercel.app/",
