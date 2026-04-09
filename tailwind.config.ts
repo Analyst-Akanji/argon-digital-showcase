@@ -12,8 +12,15 @@ export default {
         "2xl": "1400px",
       },
     },
+    fontFamily: {
+      sans: ['Inter', 'sans-serif'],
+    },
     extend: {
       colors: {
+        "dark-base": "hsl(var(--dark-base))",
+        "light-bg": "hsl(var(--light-bg))",
+        "section-alt": "hsl(var(--section-alt))",
+        "whatsapp": "#25D366",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
