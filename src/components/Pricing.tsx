@@ -5,7 +5,7 @@ import ScrollReveal from "./ScrollReveal";
 const tiers = [
   {
     name: "Presence",
-    price: "₦80,000 – ₦150,000",
+    price: "₦120,000 – ₦180,000",
     features: ["3–5 page website", "Mobile responsive", "WhatsApp & contact form", "Delivered in 7–10 days"],
     highlighted: false,
   },
