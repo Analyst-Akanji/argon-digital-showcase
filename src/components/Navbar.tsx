@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import argonLogo from "@/assets/argon-logo.webp";
 
 const navLinks = [
   { label: "Work", href: "#work" },
@@ -15,8 +16,8 @@ const Navbar = () => {
   return (
     <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border">
       <div className="container mx-auto flex items-center justify-between py-4 px-4">
-        <a href="#" className="text-xl font-black text-foreground">
-          Argon<span className="text-accent">.</span> Industries
+        <a href="#">
+          <img src={argonLogo} alt="Argon Industries" className="h-8 md:h-10 w-auto" />
         </a>
 
         <div className="hidden md:flex items-center gap-8">
