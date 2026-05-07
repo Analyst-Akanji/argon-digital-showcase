@@ -11,7 +11,7 @@ const tiers = [
   },
   {
     name: "Platform",
-    price: "₦250,000 – ₦500,000",
+    price: "₦280,000 – ₦520,000",
     features: ["Up to 10 pages", "Blog or portfolio section", "Booking & payment integration", "Delivered in 14–21 days"],
     highlighted: true,
     badge: "Most Popular",
