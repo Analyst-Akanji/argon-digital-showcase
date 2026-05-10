@@ -1,8 +1,13 @@
+import Logo from "./Logo";
+
 const Footer = () => (
-  <footer className="bg-background border-t border-border py-8">
-    <p className="text-center text-sm text-muted-foreground">
-      © 2025 Argon<span className="text-accent">.</span> Industries • Built with strategy. Delivered with excellence.
-    </p>
+  <footer className="border-t border-border bg-background">
+    <div className="container-1200 px-6 py-6 flex items-center justify-between gap-4 flex-wrap">
+      <Logo size={24} withWordmark={false} />
+      <p className="text-sm text-muted-foreground">
+        © 2025 Argon Industries. All rights reserved.
+      </p>
+    </div>
   </footer>
 );
 
