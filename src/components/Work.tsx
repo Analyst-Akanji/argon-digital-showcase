@@ -1,6 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import shammahImg from "@/assets/shammah-academy.jpg";
 import loveOfGodImg from "@/assets/loveofgod-realestate.jpg";
+import limmexImg from "@/assets/limmex.jpg";
 
 type Project = {
   tag: string;
@@ -37,6 +38,7 @@ const projects: Project[] = [
       "A bespoke menswear e-commerce platform for a premium fashion brand — crafted for style-conscious Nigerian men.",
     link: "https://stylebylimmex.com",
     linkLabel: "stylebylimmex.com",
+    image: limmexImg,
   },
   {
     tag: "Booking Platform",
