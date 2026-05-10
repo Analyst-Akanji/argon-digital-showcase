@@ -98,8 +98,8 @@ const ProjectCard = ({ project }: { project: Project }) => (
         </h3>
       </div>
 
-      {/* Hover overlay */}
-      <div className="absolute inset-0 bg-accent/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+      {/* Hover overlay (only on devices that truly hover) */}
+      <div className="hidden [@media(hover:hover)]:flex absolute inset-0 bg-accent/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 items-center justify-center pointer-events-none">
         <span className="inline-flex items-center gap-2 text-accent-foreground font-semibold text-base">
           View Project
           <ArrowUpRight className="w-5 h-5" />
