@@ -40,8 +40,8 @@ const projects: Project[] = [
     title: "Shammah Academy",
     description:
       "A complete school landing page for a Creche-to-Secondary institution in Osogbo, capturing the school's warmth and academic excellence.",
-    link: "#",
-    linkLabel: "View Site",
+    link: "https://shammah-rooted-excellence.vercel.app",
+    linkLabel: "shammah-rooted-excellence.vercel.app",
     image: shammahImg,
     icon: <GraduationCap className="w-3.5 h-3.5" />,
   },
@@ -50,8 +50,8 @@ const projects: Project[] = [
     title: "Love of God Industries",
     description:
       "A WhatsApp-commerce platform for block industry and property sales, connecting buyers directly with the business.",
-    link: "#",
-    linkLabel: "View Site",
+    link: "https://loveofgod01.vercel.app",
+    linkLabel: "loveofgod01.vercel.app",
     image: loveOfGodImg,
     icon: <Building2 className="w-3.5 h-3.5" />,
   },
