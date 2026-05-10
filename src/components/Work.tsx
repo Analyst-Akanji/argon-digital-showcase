@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Scissors, ShoppingBag, GraduationCap, Building2 } from "lucide-react";
 import shammahImg from "@/assets/shammah-academy.jpg";
 import loveOfGodImg from "@/assets/loveofgod-realestate.jpg";
 import limmexImg from "@/assets/limmex.jpg";
@@ -11,6 +11,7 @@ type Project = {
   link: string;
   linkLabel: string;
   image?: string;
+  icon: React.ReactNode;
 };
 
 const projects: Project[] = [
@@ -22,6 +23,7 @@ const projects: Project[] = [
     link: "https://tubeyonirun.com",
     linkLabel: "tubeyonirun.com",
     image: tubeyImg,
+    icon: <Scissors className="w-3.5 h-3.5" />,
   },
   {
     tag: "E-commerce",
@@ -31,6 +33,7 @@ const projects: Project[] = [
     link: "https://stylebylimmex.com",
     linkLabel: "stylebylimmex.com",
     image: limmexImg,
+    icon: <ShoppingBag className="w-3.5 h-3.5" />,
   },
   {
     tag: "Education",
@@ -40,6 +43,7 @@ const projects: Project[] = [
     link: "#",
     linkLabel: "View Site",
     image: shammahImg,
+    icon: <GraduationCap className="w-3.5 h-3.5" />,
   },
   {
     tag: "Real Estate & Commerce",
@@ -49,6 +53,7 @@ const projects: Project[] = [
     link: "#",
     linkLabel: "View Site",
     image: loveOfGodImg,
+    icon: <Building2 className="w-3.5 h-3.5" />,
   },
 ];
 
@@ -80,10 +85,18 @@ const ProjectCard = ({ project }: { project: Project }) => (
         />
       )}
 
-      {/* Tag */}
-      <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-background/95 backdrop-blur text-xs font-semibold text-primary border border-border">
+      {/* Tag with icon */}
+      <span className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-background/95 backdrop-blur text-xs font-semibold text-primary border border-border">
+        {project.icon}
         {project.tag}
       </span>
+
+      {/* Title overlay at bottom */}
+      <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
+        <h3 className="text-lg font-bold text-white drop-shadow-md">
+          {project.title}
+        </h3>
+      </div>
 
       {/* Hover overlay */}
       <div className="absolute inset-0 bg-accent/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -96,8 +109,7 @@ const ProjectCard = ({ project }: { project: Project }) => (
 
     {/* Body */}
     <div className="p-6 flex flex-col flex-1">
-      <h3 className="text-xl font-bold text-primary">{project.title}</h3>
-      <p className="mt-2 text-sm text-muted-foreground leading-relaxed flex-1">
+      <p className="text-sm text-muted-foreground leading-relaxed flex-1">
         {project.description}
       </p>
       <span className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-accent">
