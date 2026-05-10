@@ -1,29 +1,64 @@
-import { MessageCircle, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import ScrollReveal from "./ScrollReveal";
+import { MessageCircle, Mail } from "lucide-react";
+
+const WHATSAPP_URL = "https://wa.me/2348086825973";
+const EMAIL_URL = "mailto:hello@argonindustries.com";
 
 const Contact = () => (
-  <section id="contact" className="bg-primary py-24">
-    <div className="container mx-auto px-4 text-center max-w-2xl">
-      <ScrollReveal>
-        <p className="text-xs font-bold tracking-[0.2em] text-primary-foreground/70 mb-3 uppercase">Contact</p>
-        <h2 className="text-3xl md:text-5xl font-black text-primary-foreground mb-5">Ready to build something?</h2>
-        <p className="text-primary-foreground/80 mb-10 text-lg leading-relaxed">
-          Tell us about your business and what you need. We'll get back to you within 24 hours with a clear plan and honest quote.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button asChild size="lg" className="bg-[#25D366] hover:bg-[#25D366]/90 text-white text-base h-12 px-8">
-            <a href="https://wa.me/2348086825973" target="_blank" rel="noopener noreferrer">
-              <MessageCircle size={18} className="mr-2" /> Chat on WhatsApp
-            </a>
-          </Button>
-          <Button asChild size="lg" className="bg-white text-background hover:bg-white/90 text-base h-12 px-8">
-            <a href="mailto:ibitowaemmanuel@gmail.com">
-              <Mail size={18} className="mr-2" /> Send an Email
-            </a>
-          </Button>
-        </div>
-      </ScrollReveal>
+  <section id="contact" className="relative overflow-hidden">
+    <div
+      className="absolute inset-0"
+      style={{
+        background:
+          "linear-gradient(135deg, hsl(var(--cobalt)) 0%, hsl(var(--navy)) 100%)",
+      }}
+    />
+    {/* Subtle pattern */}
+    <div
+      aria-hidden
+      className="absolute inset-0 opacity-10"
+      style={{
+        backgroundImage:
+          "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
+        backgroundSize: "32px 32px",
+      }}
+    />
+
+    <div className="container-1200 px-6 py-20 md:py-28 relative text-center">
+      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+        Ready to Build Your Next Website?
+      </h2>
+      <p className="mt-4 text-base sm:text-lg text-white/80 max-w-2xl mx-auto">
+        Let's talk about your project. We respond within 24 hours.
+      </p>
+
+      <div className="mt-9 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+        <Button
+          asChild
+          size="lg"
+          className="bg-white hover:bg-white/90 text-primary font-semibold"
+        >
+          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+            <MessageCircle className="w-4 h-4" />
+            Chat on WhatsApp
+          </a>
+        </Button>
+        <Button
+          asChild
+          size="lg"
+          variant="outline"
+          className="bg-transparent border-white/70 text-white hover:bg-white/10 hover:text-white"
+        >
+          <a href={EMAIL_URL}>
+            <Mail className="w-4 h-4" />
+            Send an Email
+          </a>
+        </Button>
+      </div>
+
+      <p className="mt-8 text-sm text-white/70">
+        Based in Osogbo, Nigeria. Serving clients nationwide.
+      </p>
     </div>
   </section>
 );
