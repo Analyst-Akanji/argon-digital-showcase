@@ -112,9 +112,6 @@ const ProjectCard = ({ project }: { project: Project }) => (
       <p className="text-sm text-muted-foreground leading-relaxed flex-1">
         {project.description}
       </p>
-      <span className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-accent">
-        View Live Site <ArrowUpRight className="w-4 h-4" />
-      </span>
     </div>
   </a>
 );
