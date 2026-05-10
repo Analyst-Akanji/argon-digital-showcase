@@ -2,6 +2,7 @@ import { ArrowUpRight } from "lucide-react";
 import shammahImg from "@/assets/shammah-academy.jpg";
 import loveOfGodImg from "@/assets/loveofgod-realestate.jpg";
 import limmexImg from "@/assets/limmex.jpg";
+import tubeyImg from "@/assets/tubey-onirun.jpg";
 
 type Project = {
   tag: string;
@@ -47,6 +48,7 @@ const projects: Project[] = [
       "A premium hair styling and appointment booking platform designed to streamline client bookings for a growing beauty brand.",
     link: "https://tubeyonirun.com",
     linkLabel: "tubeyonirun.com",
+    image: tubeyImg,
   },
 ];
 
