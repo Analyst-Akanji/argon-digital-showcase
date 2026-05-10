@@ -113,7 +113,7 @@ const ProjectCard = ({ project }: { project: Project }) => (
         {project.description}
       </p>
       <span className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-accent">
-        {project.linkLabel} <span aria-hidden>→</span>
+        View Live Site <ArrowUpRight className="w-4 h-4" />
       </span>
     </div>
   </a>
