@@ -1,47 +1,126 @@
-import { ArrowRight } from "lucide-react";
-import ScrollReveal from "./ScrollReveal";
+import { ArrowUpRight } from "lucide-react";
 import shammahImg from "@/assets/shammah-academy.jpg";
-import loveofgodImg from "@/assets/loveofgod-realestate.jpg";
+import loveOfGodImg from "@/assets/loveofgod-realestate.jpg";
 
-const projects = [
+type Project = {
+  tag: string;
+  title: string;
+  description: string;
+  link: string;
+  linkLabel: string;
+  image?: string;
+};
+
+const projects: Project[] = [
   {
     tag: "Education",
-    image: shammahImg,
     title: "Shammah Academy",
-    desc: "A full school website with enrolment inquiry forms and a parent-focused digital presence.",
-    link: "https://shammah-rooted-excellence.vercel.app/",
+    description:
+      "A complete school landing page for a Creche-to-Secondary institution in Osogbo, capturing the school's warmth and academic excellence.",
+    link: "#",
+    linkLabel: "View Site",
+    image: shammahImg,
   },
   {
-    tag: "Real Estate",
-    image: loveofgodImg,
+    tag: "Real Estate & Commerce",
     title: "Love of God Industries",
-    desc: "A land sales platform with inquiry forms and property listings for a real estate company.",
-    link: "https://loveofgod01.vercel.app/",
+    description:
+      "A WhatsApp-commerce platform for block industry and property sales, connecting buyers directly with the business.",
+    link: "#",
+    linkLabel: "View Site",
+    image: loveOfGodImg,
+  },
+  {
+    tag: "E-commerce",
+    title: "StyleByLimmex",
+    description:
+      "A bespoke menswear e-commerce platform for a premium fashion brand — crafted for style-conscious Nigerian men.",
+    link: "https://stylebylimmex.com",
+    linkLabel: "stylebylimmex.com",
+  },
+  {
+    tag: "Booking Platform",
+    title: "TubeyOnirun",
+    description:
+      "A premium hair styling and appointment booking platform designed to streamline client bookings for a growing beauty brand.",
+    link: "https://tubeyonirun.com",
+    linkLabel: "tubeyonirun.com",
   },
 ];
 
+const ProjectCard = ({ project }: { project: Project }) => (
+  <a
+    href={project.link}
+    target={project.link === "#" ? undefined : "_blank"}
+    rel="noopener noreferrer"
+    className="group relative flex flex-col rounded-2xl bg-background border border-border overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-accent/15"
+  >
+    {/* Image / placeholder */}
+    <div className="relative aspect-[16/10] bg-secondary overflow-hidden">
+      {project.image ? (
+        <img
+          src={project.image}
+          alt={project.title}
+          loading="lazy"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+      ) : (
+        <div
+          aria-hidden
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              "linear-gradient(135deg, hsl(var(--primary) / 0.08) 1px, transparent 1px), linear-gradient(45deg, hsl(var(--accent) / 0.08) 1px, transparent 1px)",
+            backgroundSize: "24px 24px",
+          }}
+        />
+      )}
+
+      {/* Tag */}
+      <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-background/95 backdrop-blur text-xs font-semibold text-primary border border-border">
+        {project.tag}
+      </span>
+
+      {/* Hover overlay */}
+      <div className="absolute inset-0 bg-accent/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+        <span className="inline-flex items-center gap-2 text-accent-foreground font-semibold text-base">
+          View Project
+          <ArrowUpRight className="w-5 h-5" />
+        </span>
+      </div>
+    </div>
+
+    {/* Body */}
+    <div className="p-6 flex flex-col flex-1">
+      <h3 className="text-xl font-bold text-primary">{project.title}</h3>
+      <p className="mt-2 text-sm text-muted-foreground leading-relaxed flex-1">
+        {project.description}
+      </p>
+      <span className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-accent">
+        {project.linkLabel} <span aria-hidden>→</span>
+      </span>
+    </div>
+  </a>
+);
+
 const Work = () => (
-  <section id="work" className="bg-background py-24">
-    <div className="container mx-auto px-4">
-      <ScrollReveal>
-        <p className="text-xs font-bold tracking-[0.2em] text-primary text-center mb-3 uppercase">Our Work</p>
-        <h2 className="text-3xl md:text-5xl font-black text-foreground text-center mb-14">Projects we're proud of</h2>
-      </ScrollReveal>
-      <div className="grid md:grid-cols-2 gap-8">
+  <section id="work" className="bg-background py-20 md:py-28">
+    <div className="container-1200 px-6">
+      <div className="text-center max-w-2xl mx-auto">
+        <p className="text-xs sm:text-sm font-semibold tracking-[0.2em] text-accent">
+          OUR WORK
+        </p>
+        <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-primary tracking-tight">
+          Projects We're Proud Of
+        </h2>
+        <p className="mt-4 text-base sm:text-lg text-muted-foreground">
+          Every site we ship is built with care, clarity, and the client's audience in mind.
+        </p>
+      </div>
+
+      <div className="mt-14 grid gap-6 md:gap-8 md:grid-cols-2">
         {projects.map((p) => (
-          <ScrollReveal key={p.title}>
-            <div className="rounded-xl border border-border overflow-hidden bg-card hover:border-primary/60 hover:glow-blue transition-all duration-300 group">
-              <img src={p.image} alt={p.title} className="h-52 w-full object-cover" loading="lazy" width={800} height={512} />
-              <div className="p-7">
-                <span className="inline-block text-xs font-bold px-3 py-1 rounded-full mb-3 bg-primary/20 text-primary">{p.tag}</span>
-                <h3 className="text-xl font-bold text-foreground mb-2">{p.title}</h3>
-                <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{p.desc}</p>
-                <a href={p.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm font-bold text-primary hover:underline group-hover:gap-2.5 transition-all">
-                  View live site <ArrowRight size={14} />
-                </a>
-              </div>
-            </div>
-          </ScrollReveal>
+          <ProjectCard key={p.title} project={p} />
         ))}
       </div>
     </div>
