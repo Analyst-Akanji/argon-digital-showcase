@@ -98,7 +98,7 @@ const Hero = () => (
           >
             <span className="inline-flex items-center gap-1.5">
               <CheckCircle2 className="w-4 h-4 text-accent" />
-              5+ Projects Delivered
+              4+ Projects Delivered
             </span>
             <span className="inline-flex items-center gap-1.5">
               <Zap className="w-4 h-4 text-accent" />

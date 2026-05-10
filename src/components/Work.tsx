@@ -15,6 +15,24 @@ type Project = {
 
 const projects: Project[] = [
   {
+    tag: "Booking Platform",
+    title: "TubeyOnirun",
+    description:
+      "A premium hair styling and appointment booking platform designed to streamline client bookings for a growing beauty brand.",
+    link: "https://tubeyonirun.com",
+    linkLabel: "tubeyonirun.com",
+    image: tubeyImg,
+  },
+  {
+    tag: "E-commerce",
+    title: "StyleByLimmex",
+    description:
+      "A bespoke menswear e-commerce platform for a premium fashion brand — crafted for style-conscious Nigerian men.",
+    link: "https://stylebylimmex.com",
+    linkLabel: "stylebylimmex.com",
+    image: limmexImg,
+  },
+  {
     tag: "Education",
     title: "Shammah Academy",
     description:
@@ -31,24 +49,6 @@ const projects: Project[] = [
     link: "#",
     linkLabel: "View Site",
     image: loveOfGodImg,
-  },
-  {
-    tag: "E-commerce",
-    title: "StyleByLimmex",
-    description:
-      "A bespoke menswear e-commerce platform for a premium fashion brand — crafted for style-conscious Nigerian men.",
-    link: "https://stylebylimmex.com",
-    linkLabel: "stylebylimmex.com",
-    image: limmexImg,
-  },
-  {
-    tag: "Booking Platform",
-    title: "TubeyOnirun",
-    description:
-      "A premium hair styling and appointment booking platform designed to streamline client bookings for a growing beauty brand.",
-    link: "https://tubeyonirun.com",
-    linkLabel: "tubeyonirun.com",
-    image: tubeyImg,
   },
 ];
 
