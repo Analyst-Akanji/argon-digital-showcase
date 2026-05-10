@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, Zap, MapPin } from "lucide-react";
+// 4+ projects delivered
 
 const WHATSAPP_URL = "https://wa.me/2348086825973";
 
