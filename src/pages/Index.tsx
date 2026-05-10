@@ -1,19 +1,10 @@
 import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import Services from "@/components/Services";
-import Work from "@/components/Work";
-import Pricing from "@/components/Pricing";
-import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 const Index = () => (
-  <div className="min-h-screen">
+  <div className="min-h-screen flex flex-col bg-background">
     <Navbar />
-    <Hero />
-    <Services />
-    <Work />
-    <Pricing />
-    <Contact />
+    <main className="flex-1" />
     <Footer />
   </div>
 );
