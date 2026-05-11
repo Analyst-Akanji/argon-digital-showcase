@@ -22,7 +22,7 @@ const steps = [
 ];
 
 const Process = () => (
-  <section id="process" className="bg-secondary py-20 md:py-28">
+  <section id="process" className="bg-transparent py-20 md:py-28">
     <div className="container-1200 px-6">
       <div className="text-center max-w-2xl mx-auto">
         <p className="text-xs sm:text-sm font-semibold tracking-[0.2em] text-accent">

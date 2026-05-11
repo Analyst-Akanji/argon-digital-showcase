@@ -8,7 +8,7 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 const Index = () => (
-  <div className="min-h-screen flex flex-col bg-background">
+  <div className="min-h-screen flex flex-col bg-transparent">
     <Navbar />
     <main className="flex-1">
       <Hero />
