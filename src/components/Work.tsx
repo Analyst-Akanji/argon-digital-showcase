@@ -117,7 +117,7 @@ const ProjectCard = ({ project }: { project: Project }) => (
 );
 
 const Work = () => (
-  <section id="work" className="bg-background py-20 md:py-28">
+  <section id="work" className="bg-transparent py-20 md:py-28">
     <div className="container-1200 px-6">
       <div className="text-center max-w-2xl mx-auto">
         <p className="text-xs sm:text-sm font-semibold tracking-[0.2em] text-accent">

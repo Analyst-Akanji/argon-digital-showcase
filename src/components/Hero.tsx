@@ -35,7 +35,7 @@ const BrowserMockup = () => (
 );
 
 const Hero = () => (
-  <section className="relative overflow-hidden bg-background">
+  <section className="relative overflow-hidden bg-transparent">
     {/* Subtle geometric accent on the right */}
     <div
       aria-hidden
