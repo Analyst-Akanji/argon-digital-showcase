@@ -1,10 +1,26 @@
 import { Button } from "@/components/ui/button";
+import heroBg1 from "@/assets/hero-bg-1.jpg";
+import heroBg2 from "@/assets/hero-bg-2.jpg";
 
 const WHATSAPP_URL = "https://wa.me/2348086825973";
 
 const Hero = () => (
   <section className="relative min-h-screen flex items-center overflow-hidden bg-transparent">
-    <div className="container-1200 w-full px-6 py-24 md:py-28 relative">
+    {/* Sliding background images */}
+    <div aria-hidden="true" className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div
+        className="hero-bg-slide absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${heroBg1})`, animationDelay: "0s" }}
+      />
+      <div
+        className="hero-bg-slide absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${heroBg2})`, animationDelay: "6s" }}
+      />
+      {/* Dark overlay for text contrast */}
+      <div className="absolute inset-0 bg-background/70" />
+    </div>
+
+    <div className="container-1200 w-full px-6 py-24 md:py-28 relative z-10">
       <div className="max-w-3xl text-left">
         {/* Eyebrow */}
         <p
