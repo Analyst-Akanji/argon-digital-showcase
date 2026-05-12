@@ -20,19 +20,20 @@ const Hero = () => (
       <div className="absolute inset-0 bg-gradient-to-r from-background/75 via-background/40 to-background/20" />
     </div>
 
+    {/* Eyebrow pinned to top-left */}
+    <p
+      className="hero-rise absolute top-6 left-6 md:top-8 md:left-10 uppercase font-semibold text-accent z-10"
+      style={{
+        fontSize: "10px",
+        letterSpacing: "0.28em",
+        animationDelay: "0ms",
+      }}
+    >
+      Web Design · Osogbo, Nigeria
+    </p>
+
     <div className="container-1200 w-full px-6 py-24 md:py-28 relative z-10">
       <div className="max-w-3xl text-left">
-        {/* Eyebrow */}
-        <p
-          className="hero-rise uppercase font-semibold text-accent mb-6"
-          style={{
-            fontSize: "10px",
-            letterSpacing: "0.28em",
-            animationDelay: "0ms",
-          }}
-        >
-          Web Design · Osogbo, Nigeria
-        </p>
 
         {/* Headline */}
         <h1
