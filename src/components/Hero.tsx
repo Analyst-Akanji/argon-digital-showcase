@@ -16,8 +16,8 @@ const Hero = () => (
         className="hero-bg-slide absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${heroBg2})`, animationDelay: "6s" }}
       />
-      {/* Dark overlay for text contrast */}
-      <div className="absolute inset-0 bg-background/70" />
+      {/* Dark overlay for text contrast — lighter so images show through */}
+      <div className="absolute inset-0 bg-gradient-to-r from-background/75 via-background/40 to-background/20" />
     </div>
 
     <div className="container-1200 w-full px-6 py-24 md:py-28 relative z-10">
