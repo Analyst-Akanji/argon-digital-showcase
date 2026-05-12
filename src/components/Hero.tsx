@@ -29,7 +29,7 @@ const Hero = () => (
         animationDelay: "0ms",
       }}
     >
-      Web Design · Osogbo, Nigeria
+      Web Designer | Osogbo, Nigeria
     </p>
 
     <div className="container-1200 w-full px-6 py-24 md:py-28 relative z-10">
