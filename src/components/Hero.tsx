@@ -53,22 +53,6 @@ const Hero = () => (
           </span>
         </h1>
 
-        {/* Glass card value prop */}
-        <div
-          className="hero-rise mt-8 inline-block max-w-xl text-foreground/90 text-sm sm:text-base"
-          style={{
-            animationDelay: "450ms",
-            background: "rgba(255,255,255,0.05)",
-            backdropFilter: "blur(20px)",
-            WebkitBackdropFilter: "blur(20px)",
-            border: "1px solid rgba(255,255,255,0.12)",
-            borderRadius: "16px",
-            padding: "14px 20px",
-            boxShadow: "0 8px 32px rgba(0,0,0,0.2)",
-          }}
-        >
-          We design and build high-performance websites for Nigerian businesses.
-        </div>
 
         {/* CTAs */}
         <div
