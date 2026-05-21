@@ -25,7 +25,7 @@ const tiers: Tier[] = [
       "Fast delivery",
       "Vercel hosting setup",
     ],
-    price: "From ₦150,000",
+    price: "From ₦180,000",
   },
   {
     icon: Briefcase,
@@ -54,7 +54,7 @@ const tiers: Tier[] = [
       "Multi-role dashboards",
       "Ongoing support",
     ],
-    price: "From ₦780,000",
+    price: "From ₦800,000",
   },
 ];
 
