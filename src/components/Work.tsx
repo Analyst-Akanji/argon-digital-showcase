@@ -1,6 +1,4 @@
-import { ArrowUpRight, Scissors, ShoppingBag, GraduationCap, Building2 } from "lucide-react";
-import shammahImg from "@/assets/shammah-academy.jpg";
-import loveOfGodImg from "@/assets/loveofgod-realestate.jpg";
+import { ArrowUpRight, Scissors, ShoppingBag } from "lucide-react";
 import limmexImg from "@/assets/limmex.jpg";
 import tubeyImg from "@/assets/tubey-onirun.jpg";
 
@@ -34,26 +32,6 @@ const projects: Project[] = [
     linkLabel: "stylebylimmex.com",
     image: limmexImg,
     icon: <ShoppingBag className="w-3.5 h-3.5" />,
-  },
-  {
-    tag: "Education",
-    title: "Shammah Academy",
-    description:
-      "A complete school landing page for a Creche-to-Secondary institution in Osogbo, capturing the school's warmth and academic excellence.",
-    link: "https://shammah-rooted-excellence.vercel.app",
-    linkLabel: "shammah-rooted-excellence.vercel.app",
-    image: shammahImg,
-    icon: <GraduationCap className="w-3.5 h-3.5" />,
-  },
-  {
-    tag: "Real Estate & Commerce",
-    title: "Love of God Industries",
-    description:
-      "A WhatsApp-commerce platform for block industry and property sales, connecting buyers directly with the business.",
-    link: "https://loveofgod01.vercel.app",
-    linkLabel: "loveofgod01.vercel.app",
-    image: loveOfGodImg,
-    icon: <Building2 className="w-3.5 h-3.5" />,
   },
 ];
 
