@@ -198,7 +198,7 @@ const AdminLeads = () => {
                           </td>
                         </tr>
                       )}
-                    </>
+                    </Fragment>
                   ))}
                   {leads.length === 0 && (
                     <tr><td colSpan={7} className="px-4 py-10 text-center text-white/50">No leads yet.</td></tr>
