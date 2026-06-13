@@ -25,6 +25,7 @@ export type Database = {
           full_name: string
           id: string
           main_challenge: string
+          notes: string | null
           phone: string
           sector: string | null
           status: string
@@ -39,6 +40,7 @@ export type Database = {
           full_name: string
           id?: string
           main_challenge: string
+          notes?: string | null
           phone: string
           sector?: string | null
           status?: string
@@ -53,6 +55,7 @@ export type Database = {
           full_name?: string
           id?: string
           main_challenge?: string
+          notes?: string | null
           phone?: string
           sector?: string | null
           status?: string
