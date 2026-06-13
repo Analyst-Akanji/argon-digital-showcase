@@ -152,9 +152,8 @@ const AdminLeads = () => {
                 </thead>
                 <tbody className="text-white/90">
                   {leads.map((lead) => (
-                    <>
+                    <Fragment key={lead.id}>
                       <tr
-                        key={lead.id}
                         className="border-t border-white/10 hover:bg-white/5 cursor-pointer"
                         onClick={() => setExpanded(expanded === lead.id ? null : lead.id)}
                       >
