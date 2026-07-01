@@ -1,11 +1,11 @@
 import Logo from "./Logo";
 
 const Footer = () => (
-  <footer className="border-t border-border bg-transparent">
-    <div className="container-1200 px-6 py-6 flex items-center justify-between gap-4 flex-wrap">
-      <Logo size={24} withWordmark={false} />
-      <p className="text-sm text-muted-foreground">
-        © {new Date().getFullYear()} Argon Industries. All rights reserved.
+  <footer className="bg-graphite border-t border-white/5">
+    <div className="container-1200 px-6 py-8 flex items-center justify-between gap-4 flex-wrap">
+      <Logo size={22} />
+      <p className="font-mono text-[11px] tracking-wider text-foreground/40">
+        © {new Date().getFullYear()} argon.industries — built in Osogbo, NG
       </p>
     </div>
   </footer>

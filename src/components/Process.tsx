@@ -1,62 +1,73 @@
 const steps = [
   {
+    code: "01",
+    lens: "PM",
     title: "Discovery",
     description:
-      "We learn your business, goals, and audience before touching any code.",
+      "We learn your business, goals, and audience. We map the product before touching any code.",
   },
   {
+    code: "02",
+    lens: "PM",
     title: "Design",
     description:
-      "We craft the look, feel, and structure of your site with your brand at the center.",
+      "We craft the look, feel, and structure of your site with your brand at the centre.",
   },
   {
+    code: "03",
+    lens: "BUILD",
     title: "Build",
     description:
-      "We develop your site with clean code, fast performance, and mobile responsiveness.",
+      "We develop with clean code, fast performance, and mobile-first responsiveness.",
   },
   {
+    code: "04",
+    lens: "BUILD",
     title: "Launch",
     description:
-      "We deploy, test, and hand over your site fully set up and ready to grow.",
+      "We deploy, test, and hand over your product fully set up and ready to grow.",
   },
 ];
 
 const Process = () => (
-  <section id="process" className="bg-transparent py-20 md:py-28">
+  <section id="process" className="bg-graphite py-24 md:py-32 border-t border-white/5">
     <div className="container-1200 px-6">
-      <div className="text-center max-w-2xl mx-auto">
-        <p className="text-xs sm:text-sm font-semibold tracking-[0.2em] text-accent">
-          HOW WE WORK
-        </p>
-        <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-primary tracking-tight">
-          From Idea to Launch in 4 Steps
-        </h2>
+      <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+        <div>
+          <p className="mono-label text-signal mb-4">// process</p>
+          <h2 className="text-3xl md:text-5xl font-extrabold text-foreground tracking-tight max-w-xl">
+            Idea → Launch, in four disciplined steps.
+          </h2>
+        </div>
       </div>
 
-      <div className="mt-14 relative">
-        {/* Desktop connecting line */}
-        <div
-          aria-hidden
-          className="hidden md:block absolute top-7 left-0 right-0 h-0.5 bg-border"
-          style={{ marginLeft: "12.5%", marginRight: "12.5%" }}
-        />
-
-        <ol className="grid gap-10 md:gap-6 md:grid-cols-4">
-          {steps.map((s, i) => (
-            <li key={s.title} className="relative flex md:flex-col items-start md:items-center gap-4 md:text-center">
-              <div className="relative z-10 w-14 h-14 shrink-0 rounded-full bg-accent text-accent-foreground flex items-center justify-center font-bold text-lg shadow-lg shadow-accent/30 ring-8 ring-secondary">
-                {i + 1}
-              </div>
-              <div className="md:mt-5">
-                <h3 className="text-lg font-bold text-primary">{s.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed md:px-2">
-                  {s.description}
-                </p>
-              </div>
-            </li>
-          ))}
-        </ol>
-      </div>
+      <ol className="grid gap-4 md:grid-cols-4">
+        {steps.map((s) => (
+          <li
+            key={s.title}
+            className="group relative rounded-md border border-white/10 bg-surface p-6 hover:border-signal/50 transition-colors"
+          >
+            <div className="flex items-center justify-between mb-6">
+              <span className="font-mono text-3xl font-semibold text-signal">
+                {s.code}
+              </span>
+              <span
+                className={`font-mono text-[10px] tracking-widest px-2 py-0.5 rounded-sm ${
+                  s.lens === "PM"
+                    ? "bg-signal/10 text-signal"
+                    : "bg-sage/15 text-sage"
+                }`}
+              >
+                {s.lens}
+              </span>
+            </div>
+            <h3 className="text-lg font-bold text-foreground">{s.title}</h3>
+            <p className="mt-2 text-sm text-foreground/60 leading-relaxed">
+              {s.description}
+            </p>
+          </li>
+        ))}
+      </ol>
     </div>
   </section>
 );

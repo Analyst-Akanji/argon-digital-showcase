@@ -28,9 +28,10 @@ const MANAGEMENT = [
 const BUDGETS = ["₦120k–₦180k", "₦250k–₦500k", "₦600k+", "Not sure yet"];
 
 const inputCls =
-  "w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 outline-none transition focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/40";
+  "w-full rounded-md border border-black/10 bg-white px-4 py-3 text-ink placeholder:text-ink/40 outline-none transition focus:border-signal focus:ring-2 focus:ring-signal/25";
 
-const labelCls = "block text-sm font-medium text-white/80 mb-2";
+const labelCls =
+  "block font-mono text-[11px] tracking-widest uppercase text-ink/60 mb-2";
 
 const LeadForm = () => {
   const [loading, setLoading] = useState(false);
@@ -61,75 +62,155 @@ const LeadForm = () => {
 
   if (success) {
     return (
-      <div className="rounded-2xl border border-white/10 bg-white/5 p-10 text-center">
-        <CheckCircle2 className="mx-auto h-16 w-16 text-orange-500" strokeWidth={1.5} />
-        <h3 className="mt-6 text-3xl font-semibold text-white">Request received!</h3>
-        <p className="mt-4 text-white/70 max-w-lg mx-auto">
-          We've received your business details. Check your inbox for a confirmation — your custom quote will arrive within 48 hours.
+      <div
+        className="rounded-md border bg-card-light p-10 text-center"
+        style={{ borderColor: "rgba(0,0,0,0.08)" }}
+      >
+        <div className="mx-auto w-16 h-16 rounded-full bg-signal/10 flex items-center justify-center">
+          <CheckCircle2 className="h-9 w-9 text-signal" strokeWidth={1.75} />
+        </div>
+        <p className="mt-6 mono-label text-signal">// request_received</p>
+        <h3 className="mt-3 text-3xl font-extrabold text-ink">You're in.</h3>
+        <p className="mt-4 text-ink/70 max-w-lg mx-auto leading-relaxed">
+          We've received your business details. Check your inbox for a
+          confirmation — your custom quote will arrive within 48 hours.
         </p>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-10 space-y-6">
+    <form
+      onSubmit={handleSubmit}
+      className="rounded-md border bg-card-light p-6 sm:p-10 space-y-6"
+      style={{ borderColor: "rgba(0,0,0,0.08)" }}
+    >
       <div className="grid sm:grid-cols-2 gap-6">
         <div>
-          <label className={labelCls} htmlFor="full_name">Full Name *</label>
+          <label className={labelCls} htmlFor="full_name">
+            Full Name *
+          </label>
           <input id="full_name" name="full_name" required className={inputCls} />
         </div>
         <div>
-          <label className={labelCls} htmlFor="business_name">Business Name *</label>
-          <input id="business_name" name="business_name" required className={inputCls} />
+          <label className={labelCls} htmlFor="business_name">
+            Business Name *
+          </label>
+          <input
+            id="business_name"
+            name="business_name"
+            required
+            className={inputCls}
+          />
         </div>
         <div>
-          <label className={labelCls} htmlFor="email">Email Address *</label>
-          <input id="email" name="email" type="email" required className={inputCls} />
+          <label className={labelCls} htmlFor="email">
+            Email Address *
+          </label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            className={inputCls}
+          />
         </div>
         <div>
-          <label className={labelCls} htmlFor="phone">Phone Number *</label>
-          <input id="phone" name="phone" type="tel" required className={inputCls} />
+          <label className={labelCls} htmlFor="phone">
+            Phone Number *
+          </label>
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            required
+            className={inputCls}
+          />
         </div>
         <div>
-          <label className={labelCls} htmlFor="sector">Business Sector</label>
+          <label className={labelCls} htmlFor="sector">
+            Business Sector
+          </label>
           <select id="sector" name="sector" className={inputCls}>
             <option value="">Select sector</option>
-            {SECTORS.map((s) => <option key={s} value={s}>{s}</option>)}
+            {SECTORS.map((s) => (
+              <option key={s} value={s}>
+                {s}
+              </option>
+            ))}
           </select>
         </div>
         <div>
-          <label className={labelCls} htmlFor="budget_range">Estimated Budget Range</label>
+          <label className={labelCls} htmlFor="budget_range">
+            Estimated Budget
+          </label>
           <select id="budget_range" name="budget_range" className={inputCls}>
             <option value="">Select budget</option>
-            {BUDGETS.map((b) => <option key={b} value={b}>{b}</option>)}
+            {BUDGETS.map((b) => (
+              <option key={b} value={b}>
+                {b}
+              </option>
+            ))}
           </select>
         </div>
       </div>
 
       <div>
-        <label className={labelCls} htmlFor="business_description">What does your business do? *</label>
-        <textarea id="business_description" name="business_description" required rows={3} className={inputCls} />
+        <label className={labelCls} htmlFor="business_description">
+          What does your business do? *
+        </label>
+        <textarea
+          id="business_description"
+          name="business_description"
+          required
+          rows={3}
+          className={inputCls}
+        />
       </div>
 
       <div>
-        <label className={labelCls} htmlFor="main_challenge">What is your biggest operational challenge right now? *</label>
-        <textarea id="main_challenge" name="main_challenge" required rows={3} className={inputCls} />
+        <label className={labelCls} htmlFor="main_challenge">
+          Your biggest operational challenge right now? *
+        </label>
+        <textarea
+          id="main_challenge"
+          name="main_challenge"
+          required
+          rows={3}
+          className={inputCls}
+        />
       </div>
 
       <div>
-        <label className={labelCls} htmlFor="current_management">How are you currently managing orders/bookings/customers?</label>
-        <select id="current_management" name="current_management" className={inputCls}>
+        <label className={labelCls} htmlFor="current_management">
+          How are you currently managing orders/bookings/customers?
+        </label>
+        <select
+          id="current_management"
+          name="current_management"
+          className={inputCls}
+        >
           <option value="">Select an option</option>
-          {MANAGEMENT.map((m) => <option key={m} value={m}>{m}</option>)}
+          {MANAGEMENT.map((m) => (
+            <option key={m} value={m}>
+              {m}
+            </option>
+          ))}
         </select>
       </div>
 
       <button
         type="submit"
         disabled={loading}
-        className="w-full rounded-lg bg-orange-500 hover:bg-orange-600 disabled:opacity-70 text-white font-semibold text-lg py-4 transition flex items-center justify-center gap-2"
+        className="w-full rounded-md bg-signal hover:bg-signal/90 disabled:opacity-70 text-white font-mono text-sm tracking-wider py-4 transition flex items-center justify-center gap-2"
       >
-        {loading ? <><Loader2 className="h-5 w-5 animate-spin" /> Submitting...</> : "Request My Quote"}
+        {loading ? (
+          <>
+            <Loader2 className="h-4 w-4 animate-spin" /> submitting...
+          </>
+        ) : (
+          "submit_request →"
+        )}
       </button>
     </form>
   );

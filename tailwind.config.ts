@@ -14,12 +14,17 @@ export default {
     },
     fontFamily: {
       sans: ['Inter', 'sans-serif'],
+      mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
     },
     extend: {
       colors: {
-        "dark-base": "hsl(var(--dark-base))",
-        "light-bg": "hsl(var(--light-bg))",
-        "section-alt": "hsl(var(--section-alt))",
+        graphite: "hsl(var(--graphite))",
+        paper: "hsl(var(--paper))",
+        "card-light": "hsl(var(--card-light))",
+        sage: "hsl(var(--sage))",
+        signal: "hsl(var(--signal))",
+        ink: "hsl(var(--ink))",
+        surface: "hsl(var(--surface))",
         "whatsapp": "#25D366",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

@@ -12,27 +12,33 @@ const LeadIntake = () => {
     const ctx = gsap.context(() => {
       gsap.from(".lead-anim", {
         opacity: 0,
-        y: 40,
-        duration: 0.8,
-        stagger: 0.1,
-        scrollTrigger: { trigger: sectionRef.current, start: "top 75%" },
+        y: 32,
+        duration: 0.7,
+        stagger: 0.08,
+        scrollTrigger: { trigger: sectionRef.current, start: "top 78%" },
       });
     }, sectionRef);
     return () => ctx.revert();
   }, []);
 
   return (
-    <section ref={sectionRef} id="quote" className="py-24 px-6 bg-black/40">
-      <div className="max-w-3xl mx-auto">
-        <div className="text-center mb-12">
-          <span className="lead-anim inline-block text-xs font-semibold tracking-[0.2em] text-orange-500 mb-4">
-            WORK WITH US
-          </span>
-          <h2 className="lead-anim text-4xl md:text-5xl font-semibold text-white mb-6">
-            Tell us about your business. Get a custom quote.
+    <section
+      ref={sectionRef}
+      id="quote"
+      className="section-paper py-24 md:py-32"
+    >
+      <div className="max-w-3xl mx-auto px-6">
+        <div className="mb-12">
+          <p className="lead-anim mono-label text-signal mb-4">// work_with_us</p>
+          <h2 className="lead-anim text-3xl md:text-5xl font-extrabold text-ink tracking-tight mb-6">
+            Tell us about your business.
+            <br />
+            <span className="text-ink/50">Get a custom quote.</span>
           </h2>
-          <p className="lead-anim text-white/70 text-lg max-w-2xl mx-auto">
-            No WhatsApp back-and-forth. No waiting. Tell us what you're building, what's slowing you down, and we'll evaluate your business and send you a tailored quote by email within 48 hours.
+          <p className="lead-anim text-ink/70 text-base md:text-lg max-w-2xl leading-relaxed">
+            No WhatsApp back-and-forth. No waiting. Tell us what you're
+            building, what's slowing you down, and we'll evaluate your business
+            and send you a tailored quote by email within 48 hours.
           </p>
         </div>
         <div className="lead-anim">

@@ -102,11 +102,11 @@ const AdminLeads = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Password"
-            className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 outline-none focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/40"
+            className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 outline-none focus:border-[#E8623D] focus:ring-2 focus:ring-[#E8623D]/40"
           />
           <button
             type="submit"
-            className="w-full rounded-lg bg-[#2563EB] hover:bg-[#1d4ed8] text-white font-semibold py-3 transition"
+            className="w-full rounded-lg bg-[#E8623D] hover:bg-[#c9502e] text-white font-semibold py-3 transition"
           >
             Sign In
           </button>
@@ -133,7 +133,7 @@ const AdminLeads = () => {
 
         {loading ? (
           <div className="flex justify-center py-20">
-            <Loader2 className="h-8 w-8 animate-spin text-[#2563EB]" />
+            <Loader2 className="h-8 w-8 animate-spin text-[#E8623D]" />
           </div>
         ) : (
           <div className="rounded-2xl border border-white/10 bg-white/5 overflow-hidden">
@@ -168,7 +168,7 @@ const AdminLeads = () => {
                           <select
                             value={lead.status}
                             onChange={(e) => updateStatus(lead.id, e.target.value)}
-                            className="rounded-md border border-white/10 bg-black/40 text-white px-2 py-1 text-xs focus:border-[#2563EB] outline-none"
+                            className="rounded-md border border-white/10 bg-black/40 text-white px-2 py-1 text-xs focus:border-[#E8623D] outline-none"
                           >
                             {STATUSES.map((s) => (
                               <option key={s} value={s}>{s}</option>
@@ -222,11 +222,11 @@ const NotesEditor = ({ initial, onSave }: { initial: string; onSave: (v: string)
         value={val}
         onChange={(e) => setVal(e.target.value)}
         rows={5}
-        className="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-white text-sm outline-none focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/40"
+        className="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-white text-sm outline-none focus:border-[#E8623D] focus:ring-2 focus:ring-[#E8623D]/40"
       />
       <button
         onClick={() => onSave(val)}
-        className="mt-2 rounded-md bg-[#2563EB] hover:bg-[#1d4ed8] text-white text-sm font-medium px-4 py-2 transition"
+        className="mt-2 rounded-md bg-[#E8623D] hover:bg-[#c9502e] text-white text-sm font-medium px-4 py-2 transition"
       >
         Save notes
       </button>

@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { MessageCircle, Mail } from "lucide-react";
 
 const WHATSAPP_NUMBER_DISPLAY = "0808 682 5973";
@@ -13,80 +12,73 @@ const WhatsAppIcon = ({ className = "" }: { className?: string }) => (
 );
 
 const Contact = () => (
-  <section id="contact" className="relative overflow-hidden">
-    <div
-      className="absolute inset-0"
-      style={{
-        background:
-          "linear-gradient(135deg, hsl(var(--cobalt)) 0%, hsl(var(--navy)) 100%)",
-      }}
-    />
+  <section id="contact" className="relative bg-graphite border-t border-white/5">
     <div
       aria-hidden
-      className="absolute inset-0 opacity-10"
+      className="absolute inset-0 opacity-[0.05]"
       style={{
         backgroundImage:
-          "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
-        backgroundSize: "32px 32px",
+          "linear-gradient(rgba(245,243,238,1) 1px, transparent 1px), linear-gradient(90deg, rgba(245,243,238,1) 1px, transparent 1px)",
+        backgroundSize: "48px 48px",
       }}
     />
 
-    <div className="container-1200 px-6 py-20 md:py-28 relative text-center">
-      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
-        Ready to Build Your Next Website?
-      </h2>
-      <p className="mt-4 text-base sm:text-lg text-white/80 max-w-2xl mx-auto">
-        Let's talk about your project. We respond within 24 hours.
-      </p>
+    <div className="container-1200 px-6 py-24 md:py-32 relative">
+      <div className="max-w-3xl">
+        <p className="mono-label text-signal mb-4">// direct_line</p>
+        <h2 className="text-3xl md:text-5xl font-extrabold text-foreground tracking-tight">
+          Skip the form.
+          <br />
+          <span className="text-foreground/50">Talk to us directly.</span>
+        </h2>
+        <p className="mt-6 text-base md:text-lg text-foreground/70 max-w-xl leading-relaxed">
+          Prefer a conversation? Reach us on WhatsApp or by email — we respond
+          within 24 hours.
+        </p>
 
-      <div className="mt-9 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-        <Button
-          asChild
-          size="lg"
-          className="bg-white hover:bg-white/90 text-primary font-semibold"
-        >
-          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-            <MessageCircle className="w-4 h-4" />
-            Chat on WhatsApp
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 max-w-2xl">
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-start gap-4 rounded-md border border-white/10 bg-surface p-6 hover:border-signal transition-colors"
+          >
+            <div className="w-10 h-10 rounded-md bg-signal/10 flex items-center justify-center shrink-0">
+              <WhatsAppIcon className="w-5 h-5 text-signal" />
+            </div>
+            <div>
+              <div className="font-mono text-[10px] tracking-widest text-foreground/50 uppercase mb-1">
+                whatsapp
+              </div>
+              <div className="text-foreground font-semibold group-hover:text-signal transition-colors">
+                {WHATSAPP_NUMBER_DISPLAY}
+              </div>
+            </div>
           </a>
-        </Button>
-        <Button
-          asChild
-          size="lg"
-          variant="outline"
-          className="bg-transparent border-white/70 text-white hover:bg-white/10 hover:text-white"
-        >
-          <a href={EMAIL_URL}>
-            <Mail className="w-4 h-4" />
-            Send an Email
+
+          <a
+            href={EMAIL_URL}
+            className="group flex items-start gap-4 rounded-md border border-white/10 bg-surface p-6 hover:border-signal transition-colors"
+          >
+            <div className="w-10 h-10 rounded-md bg-signal/10 flex items-center justify-center shrink-0">
+              <Mail className="w-5 h-5 text-signal" />
+            </div>
+            <div className="min-w-0">
+              <div className="font-mono text-[10px] tracking-widest text-foreground/50 uppercase mb-1">
+                email
+              </div>
+              <div className="text-foreground font-semibold truncate group-hover:text-signal transition-colors">
+                {EMAIL_ADDRESS}
+              </div>
+            </div>
           </a>
-        </Button>
-      </div>
+        </div>
 
-      {/* Direct contact details */}
-      <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-white/95">
-        <a
-          href={WHATSAPP_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-sm font-medium hover:text-white transition-colors"
-        >
-          <WhatsAppIcon className="w-5 h-5 text-[#25D366]" />
-          {WHATSAPP_NUMBER_DISPLAY}
-        </a>
-        <span className="hidden sm:inline text-white/40">•</span>
-        <a
-          href={EMAIL_URL}
-          className="inline-flex items-center gap-2 text-sm font-medium hover:text-white transition-colors"
-        >
-          <Mail className="w-4 h-4" />
-          {EMAIL_ADDRESS}
-        </a>
+        <div className="mt-10 flex items-center gap-3 font-mono text-[11px] tracking-widest uppercase text-foreground/40">
+          <span className="w-8 h-px bg-white/15" />
+          <span>Based in Osogbo, Nigeria · Serving clients nationwide</span>
+        </div>
       </div>
-
-      <p className="mt-8 text-sm text-white/70">
-        Based in Osogbo, Nigeria. Serving clients nationwide.
-      </p>
     </div>
   </section>
 );
