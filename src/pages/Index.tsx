@@ -1,29 +1,30 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Services from "@/components/Services";
 import Work from "@/components/Work";
-import Demos from "@/components/Demos";
-import LeadIntake from "@/components/LeadIntake";
 import Process from "@/components/Process";
-import Testimonials from "@/components/Testimonials";
+import About from "@/components/About";
 import Contact from "@/components/Contact";
+import LeadIntake from "@/components/LeadIntake";
 import Footer from "@/components/Footer";
 
-const Index = () => (
-  <div className="min-h-screen flex flex-col bg-transparent">
-    <Navbar />
-    <main className="flex-1">
+const Index = () => {
+  return (
+    <div className="min-h-screen">
+      <Navbar />
       <Hero />
-      <Services />
       <Work />
       <Process />
-      <Testimonials />
-      <Demos />
-      <LeadIntake />
+      <About />
       <Contact />
-    </main>
-    <Footer />
-  </div>
-);
+      <div style={{
+        background: "#F5F3EE",
+        padding: "0",
+      }}>
+        <LeadIntake />
+      </div>
+      <Footer />
+    </div>
+  );
+};
 
 export default Index;
