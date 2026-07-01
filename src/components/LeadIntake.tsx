@@ -29,7 +29,7 @@ const LeadIntake = () => {
     >
       <div className="max-w-3xl mx-auto px-6">
         <div className="mb-12">
-          <p className="lead-anim mono-label text-signal mb-4">// work_with_us</p>
+          <p className="lead-anim mono-label text-signal mb-4">WORK WITH US</p>
           <h2 className="lead-anim text-3xl md:text-5xl font-extrabold text-ink tracking-tight mb-6">
             Tell us about your business.
             <br />

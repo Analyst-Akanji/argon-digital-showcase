@@ -1,86 +1,142 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import Logo from "./Logo";
 
-const navLinks = [
-  { label: "work", href: "#work" },
-  { label: "services", href: "#services" },
-  { label: "process", href: "#process" },
-  { label: "demos", href: "#demos" },
-  { label: "contact", href: "#contact" },
+const NAV_LINKS = [
+  { label: "WORK",     href: "#work" },
+  { label: "APPROACH", href: "#approach" },
+  { label: "ABOUT",    href: "#about" },
+  { label: "CONTACT",  href: "#contact" },
 ];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   return (
-    <nav
-      className={`sticky top-0 z-50 bg-graphite/85 backdrop-blur-md border-b border-white/5 transition-shadow ${
-        scrolled ? "nav-shadow" : ""
-      }`}
+    <header
+      style={{
+        background: "rgba(15,20,25,0.98)",
+        borderBottom: "1px solid rgba(255,255,255,0.06)",
+        position: "relative",
+        zIndex: 50,
+      }}
     >
-      <div className="container-1200 flex items-center justify-between py-4 px-6">
-        <a href="#" aria-label="Argon Industries home">
-          <Logo size={30} />
+      <nav style={{
+        maxWidth: "1200px",
+        margin: "0 auto",
+        padding: "0 24px",
+        height: "72px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+      }}>
+
+        <a href="#top" style={{ textDecoration: "none" }}>
+          <Logo />
         </a>
 
-        <div className="hidden md:flex items-center gap-7">
-          {navLinks.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="font-mono text-[12px] tracking-wider text-foreground/70 hover:text-signal transition-colors"
-            >
-              {l.label}
-            </a>
+        <ul style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "36px",
+          listStyle: "none",
+          margin: 0,
+          padding: 0,
+        }} className="hidden md:flex">
+          {NAV_LINKS.map((link) => (
+            <li key={link.href}>
+              <a
+                href={link.href}
+                style={{
+                  fontFamily: "JetBrains Mono, monospace",
+                  fontSize: "11px",
+                  letterSpacing: "0.12em",
+                  color: "rgba(245,243,238,0.7)",
+                  textDecoration: "none",
+                }}
+              >
+                {link.label}
+              </a>
+            </li>
           ))}
-          <a
-            href="#quote"
-            className="font-mono text-[12px] tracking-wider bg-signal hover:bg-signal/90 text-white px-4 py-2 rounded-md transition-colors"
-          >
-            get_quote →
-          </a>
-        </div>
+        </ul>
+
+        <a
+          href="#contact"
+          style={{
+            display: "none",
+            background: "#E8623D",
+            color: "#F5F3EE",
+            fontFamily: "Inter, sans-serif",
+            fontSize: "14px",
+            fontWeight: 500,
+            padding: "10px 20px",
+            borderRadius: "6px",
+            textDecoration: "none",
+          }}
+          className="hidden md:inline-block"
+        >
+          Start a Project
+        </a>
 
         <button
-          className="md:hidden text-foreground"
-          onClick={() => setOpen(!open)}
+          style={{ background: "none", border: "none", color: "#F5F3EE", cursor: "pointer", padding: "4px" }}
+          className="md:hidden"
           aria-label="Toggle menu"
+          onClick={() => setOpen((v) => !v)}
         >
-          {open ? <X size={22} /> : <Menu size={22} />}
+          {open ? <X size={24} /> : <Menu size={24} />}
         </button>
-      </div>
+      </nav>
 
       {open && (
-        <div className="md:hidden border-t border-white/5 bg-graphite px-6 pb-4 flex flex-col gap-1">
-          {navLinks.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              onClick={() => setOpen(false)}
-              className="font-mono text-sm text-foreground/80 hover:text-signal py-3 border-b border-white/5"
-            >
-              {l.label}
-            </a>
-          ))}
+        <div style={{
+          background: "#0F1419",
+          borderTop: "1px solid rgba(255,255,255,0.08)",
+          padding: "24px",
+        }}>
+          <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
+            {NAV_LINKS.map((link) => (
+              <li key={link.href} style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+                <a
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  style={{
+                    display: "block",
+                    padding: "20px 0",
+                    fontFamily: "Inter, sans-serif",
+                    fontSize: "16px",
+                    color: "#F5F3EE",
+                    textDecoration: "none",
+                  }}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
           <a
-            href="#quote"
+            href="#contact"
             onClick={() => setOpen(false)}
-            className="font-mono text-sm bg-signal text-white text-center rounded-md px-4 py-3 mt-3"
+            style={{
+              display: "block",
+              textAlign: "center",
+              background: "#E8623D",
+              color: "#F5F3EE",
+              fontFamily: "Inter, sans-serif",
+              fontSize: "14px",
+              fontWeight: 500,
+              padding: "14px",
+              borderRadius: "6px",
+              textDecoration: "none",
+              marginTop: "24px",
+            }}
           >
-            get_quote →
+            Start a Project
           </a>
         </div>
       )}
-    </nav>
+    </header>
   );
 };
 

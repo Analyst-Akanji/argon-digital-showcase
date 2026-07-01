@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -6,146 +6,211 @@
 
 @layer base {
   :root {
-    /* Argon Industries — technical studio palette */
-    /* Raw brand values */
-    --graphite: 207 17% 8%;      /* #0F1419 */
-    --paper: 41 27% 95%;         /* #F5F3EE */
-    --card-light: 40 33% 98%;    /* #FBFAF7 */
-    --sage: 167 13% 54%;         /* #7C9A92 */
-    --signal: 13 79% 57%;        /* #E8623D */
-    --ink: 210 17% 12%;          /* #1A1F24 */
-    --muted-plain: 213 5% 45%;   /* #6B7178 */
+    /* Argon Industries Design Tokens */
+    --graphite: 15 20 25;          /* #0F1419 */
+    --paper: 245 243 238;          /* #F5F3EE */
+    --card: 251 250 247;           /* #FBFAF7 */
+    --sage: 124 154 146;           /* #7C9A92 */
+    --sage-dark: 95 122 114;       /* #5F7A72 */
+    --signal: 232 98 61;           /* #E8623D */
+    --signal-dark: 201 79 46;      /* #C94F2E */
+    --ink: 26 31 36;               /* #1A1F24 */
+    --muted-fg: 107 113 120;       /* #6B7178 */
 
-    /* Elevated dark surface used for cards inside dark sections */
-    --surface: 210 20% 11%;
+    /* shadcn compatibility — map to new palette */
+    --background: 245 243 238;
+    --foreground: 26 31 36;
+    --card-bg: 251 250 247;
+    --card-foreground: 26 31 36;
+    --primary: 232 98 61;
+    --primary-foreground: 245 243 238;
+    --secondary: 124 154 146;
+    --secondary-foreground: 245 243 238;
+    --muted: 240 238 233;
+    --muted-foreground: 107 113 120;
+    --border: 26 31 36 / 0.1;
+    --input: 26 31 36 / 0.1;
+    --ring: 232 98 61;
+    --radius: 6px;
 
-    /* Semantic tokens (dark by default) */
-    --background: var(--graphite);
-    --foreground: var(--paper);
-
-    --card: var(--surface);
-    --card-foreground: var(--paper);
-
-    --popover: var(--surface);
-    --popover-foreground: var(--paper);
-
-    --primary: var(--paper);
-    --primary-foreground: var(--graphite);
-
-    --secondary: 210 18% 14%;
-    --secondary-foreground: var(--paper);
-
-    --muted: 210 18% 14%;
-    --muted-foreground: 210 10% 65%;
-
-    --accent: var(--signal);
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 210 15% 20%;
-    --input: 210 15% 20%;
-    --ring: var(--signal);
-    --radius: 0.375rem;
-
-    --shadow-nav: 0 2px 16px -4px hsl(0 0% 0% / 0.5);
-
-    --sidebar-background: var(--surface);
-    --sidebar-foreground: var(--paper);
-    --sidebar-primary: var(--signal);
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 210 18% 14%;
-    --sidebar-accent-foreground: var(--paper);
-    --sidebar-border: 210 15% 20%;
-    --sidebar-ring: var(--signal);
+    /* Keep existing dark-base for admin dashboard compatibility */
+    --dark-base: 215 28% 9%;
+    --light-bg: 40 20% 96%;
+    --section-alt: 40 15% 92%;
   }
-}
 
-@layer base {
   * {
-    @apply border-border;
+    box-sizing: border-box;
   }
-  body {
-    @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', sans-serif;
-  }
+
   html {
     scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background-color: rgb(var(--paper));
+    color: rgb(var(--ink));
+  }
+
+  ::selection {
+    background-color: rgb(var(--signal));
+    color: rgb(var(--paper));
   }
 }
 
 @layer utilities {
-  .nav-shadow {
-    box-shadow: var(--shadow-nav);
+  .font-mono-brand {
+    font-family: "JetBrains Mono", monospace;
   }
-  .container-1200 {
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .font-mono {
-    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-  }
-  .mono-label {
-    font-family: 'JetBrains Mono', ui-monospace, monospace;
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    font-weight: 500;
-  }
+
+  .text-signal { color: rgb(var(--signal)); }
+  .text-sage   { color: rgb(var(--sage)); }
+  .text-paper  { color: rgb(var(--paper)); }
+  .text-ink    { color: rgb(var(--ink)); }
+  .text-muted-fg { color: rgb(var(--muted-fg)); }
+
+  .bg-graphite { background-color: rgb(var(--graphite)); }
+  .bg-paper    { background-color: rgb(var(--paper)); }
+  .bg-card-argon { background-color: rgb(var(--card)); }
+  .bg-signal   { background-color: rgb(var(--signal)); }
+  .bg-sage     { background-color: rgb(var(--sage)); }
 }
 
-/* Paper (light) section cascade — flip theme inside .section-paper */
-.section-paper {
-  background: hsl(var(--paper));
-  color: hsl(var(--ink));
-}
-.section-paper .text-primary,
-.section-paper .text-foreground,
-.section-paper h1,
-.section-paper h2,
-.section-paper h3,
-.section-paper h4 {
-  color: hsl(var(--ink));
-}
-.section-paper .text-muted-foreground {
-  color: hsl(var(--muted-plain));
-}
-.section-paper .bg-background,
-.section-paper .bg-card {
-  background: hsl(var(--card-light));
-}
-.section-paper .border-border {
-  border-color: rgba(0, 0, 0, 0.08);
-}
-.section-paper .bg-secondary {
-  background: rgba(0, 0, 0, 0.04);
+/* ── Pulse dot animation ── */
+.pulse-dot {
+  position: relative;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgb(var(--sage));
+  flex-shrink: 0;
 }
 
-/* Hero rise (kept) */
-@keyframes heroRise {
-  from { opacity: 0; transform: translateY(30px); }
-  to   { opacity: 1; transform: translateY(0); }
+.pulse-dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background-color: rgb(var(--sage));
+  animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
-.hero-rise {
+
+@keyframes pulse-ring {
+  0%   { transform: scale(1); opacity: 0.7; }
+  100% { transform: scale(2.8); opacity: 0; }
+}
+
+/* ── Scroll reveal ── */
+.reveal {
   opacity: 0;
-  animation: heroRise 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-/* Hero background crossfade */
-@keyframes heroBgFade {
-  0%   { opacity: 0; transform: scale(1.06); }
-  8%   { opacity: 0.35; transform: scale(1.03); }
-  42%  { opacity: 0.35; transform: scale(1.0); }
-  50%  { opacity: 0; transform: scale(1.0); }
-  100% { opacity: 0; transform: scale(1.06); }
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
-.hero-bg-slide {
-  opacity: 0;
-  animation: heroBgFade 14s ease-in-out infinite;
-  filter: grayscale(0.4) contrast(1.05);
+
+/* ── Split card column divider ── */
+@media (min-width: 768px) {
+  .split-divider {
+    position: relative;
+  }
+  .split-divider::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      rgba(26, 31, 36, 0.1) 15%,
+      rgba(26, 31, 36, 0.1) 85%,
+      transparent
+    );
+  }
 }
+
 @media (prefers-reduced-motion: reduce) {
-  .hero-bg-slide { animation: none; opacity: 0.25; }
+  .pulse-dot::after { animation: none; display: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* ── Legacy CSS variables for LeadIntake/LeadForm compatibility ── */
+:root {
+  --cobalt: 220 70% 25%;
+  --navy: 222 80% 15%;
+  --dark-base: 215 28% 9%;
+  --light-bg: 40 20% 96%;
+  --section-alt: 40 15% 92%;
+  --background: 40 20% 96%;
+  --foreground: 222 20% 10%;
+  --card: 0 0% 100%;
+  --card-foreground: 222 20% 10%;
+  --primary: 16 78% 57%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 40 15% 88%;
+  --secondary-foreground: 222 20% 20%;
+  --muted: 40 15% 88%;
+  --muted-foreground: 222 10% 45%;
+  --border: 40 10% 82%;
+  --input: 40 10% 82%;
+  --ring: 16 78% 57%;
+  --radius: 0.5rem;
+}
+
+/* Fix LeadIntake form */
+#quote {
+  background: #1A1F24 !important;
+}
+#quote select,
+#quote input,
+#quote textarea {
+  background: #2A2F35 !important;
+  color: #F5F3EE !important;
+  border-color: rgba(255,255,255,0.15) !important;
+}
+#quote option {
+  background: #2A2F35 !important;
+  color: #F5F3EE !important;
+}
+#quote label {
+  color: #F5F3EE !important;
+}
+/* Fix LeadIntake section */
+#quote {
+  background: #1A1F24 !important;
+}
+#quote p,
+#quote h2,
+#quote span,
+#quote label {
+  color: #F5F3EE !important;
+  opacity: 1 !important;
+}
+#quote .text-signal,
+#quote [class*="text-signal"] {
+  color: #E8623D !important;
+}
+#quote input,
+#quote textarea,
+#quote select {
+  background: #2A2F35 !important;
+  color: #F5F3EE !important;
+  border-color: rgba(255,255,255,0.15) !important;
+}
+#quote option {
+  background: #2A2F35 !important;
+  color: #F5F3EE !important;
+}
+#quote button[type="submit"] {
+  background: #E8623D !important;
+  color: #F5F3EE !important;
 }

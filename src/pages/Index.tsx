@@ -16,12 +16,7 @@ const Index = () => {
       <Process />
       <About />
       <Contact />
-      <div style={{
-        background: "#F5F3EE",
-        padding: "0",
-      }}>
-        <LeadIntake />
-      </div>
+      <LeadIntake />
       <Footer />
     </div>
   );

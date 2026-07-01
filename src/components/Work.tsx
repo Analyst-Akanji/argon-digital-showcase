@@ -1,107 +1,228 @@
-import { ArrowUpRight, Scissors, ShoppingBag } from "lucide-react";
-import limmexImg from "@/assets/limmex.jpg";
-import tubeyImg from "@/assets/tubey-onirun.jpg";
+import { useEffect, useRef } from "react";
+import { ArrowUpRight } from "lucide-react";
 
-type Project = {
-  index: string;
-  tag: string;
-  title: string;
-  description: string;
-  link: string;
-  linkLabel: string;
-  image?: string;
-  icon: React.ReactNode;
-};
-
-const projects: Project[] = [
+const PROJECTS = [
   {
-    index: "01",
-    tag: "Booking Platform",
-    title: "TubeyOnirun",
-    description:
-      "A premium hair styling and appointment booking platform designed to streamline client bookings for a growing beauty brand.",
-    link: "https://tubeyonirun.com",
-    linkLabel: "tubeyonirun.com",
-    image: tubeyImg,
-    icon: <Scissors className="w-3.5 h-3.5" />,
+    id: "tubeyonirun",
+    name: "TubeyOnirun",
+    tag: "Hair Booking Platform",
+    status: "live" as const,
+    url: "https://tubeyonirun.com",
+    strategy: [
+      "Client needed to replace manual WhatsApp booking with a structured flow that reduced no-shows and missed messages.",
+      "Designed booking logic around service duration and stylist availability — not just a contact form.",
+      "Recommended automated email confirmations to cut manual admin time to near zero.",
+    ],
+    build: [
+      "React + Vite frontend, Supabase for auth, bookings, and Row Level Security.",
+      "Edge Functions handle booking confirmation and reminder emails via Resend.",
+      "Deployed on Vercel, connected to custom domain via Whogohost.",
+    ],
+    stack: ["React", "Supabase", "Vercel", "Resend"],
   },
   {
-    index: "02",
-    tag: "E-commerce",
-    title: "StyleByLimmex",
-    description:
-      "A bespoke menswear e-commerce platform for a premium fashion brand — crafted for style-conscious Nigerian men.",
-    link: "https://stylebylimmex.com",
-    linkLabel: "stylebylimmex.com",
-    image: limmexImg,
-    icon: <ShoppingBag className="w-3.5 h-3.5" />,
+    id: "stylebylimmex",
+    name: "StyleByLimmex",
+    tag: "Bespoke Menswear E-Commerce",
+    status: "live" as const,
+    url: "https://stylebylimmex.com",
+    strategy: [
+      "Client's product was already premium — the brand's digital presence wasn't matching the quality of the tailoring.",
+      "Proposed a measurement-guided catalogue so customers could order remotely with confidence.",
+      "Built an admin dashboard so order management didn't require touching code or spreadsheets.",
+    ],
+    build: [
+      "Custom product catalogue with size-guide modals.",
+      "Supabase database webhooks trigger order confirmation automatically — no manual replies.",
+      "Admin dashboard for managing every order from one place.",
+    ],
+    stack: ["React", "Supabase", "Paystack", "Vercel"],
+  },
+  {
+    id: "loveofgod",
+    name: "Love of God Properties & Block Industry",
+    tag: "Construction E-Commerce + Land Platform",
+    status: "in-progress" as const,
+    url: undefined,
+    strategy: [
+      "Two distinct business lines needed separate buyer journeys without feeling like two different products.",
+      "Moved client fully off WhatsApp ordering onto a real e-commerce checkout with delivery zones.",
+      "Designed the admin dashboard around what the client needs daily: orders, stock, revenue — not a generic CMS.",
+    ],
+    build: [
+      "Supabase schema with delivery zones, order status pipeline, and product inventory.",
+      "Paystack and Flutterwave checkout integration with kobo-based pricing.",
+      "Full admin dashboard: orders, products, delivery zones, customers, and land enquiries.",
+    ],
+    stack: ["React", "Supabase", "Paystack", "Flutterwave"],
   },
 ];
 
-const ProjectCard = ({ project }: { project: Project }) => (
-  <a
-    href={project.link}
-    target={project.link === "#" ? undefined : "_blank"}
-    rel="noopener noreferrer"
-    className="group relative flex flex-col rounded-md bg-card-light border border-black/8 overflow-hidden transition-all duration-300 hover:-translate-y-1"
-    style={{ borderColor: "rgba(0,0,0,0.08)" }}
-  >
-    <div className="relative aspect-[16/10] overflow-hidden bg-ink/5">
-      {project.image && (
-        <img
-          src={project.image}
-          alt={project.title}
-          loading="lazy"
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-        />
-      )}
-      <span className="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-sm bg-graphite/90 backdrop-blur font-mono text-[10px] tracking-widest uppercase text-paper">
-        {project.icon}
-        {project.tag}
-      </span>
-    </div>
+const ProjectCard = ({ project }: { project: (typeof PROJECTS)[0] }) => {
+  const isLive = project.status === "live";
 
-    <div className="p-6 flex flex-col flex-1">
-      <div className="flex items-center justify-between mb-3">
-        <span className="font-mono text-[11px] tracking-widest text-ink/40">
-          /{project.index}
-        </span>
-        <span className="font-mono text-[11px] text-ink/40 group-hover:text-signal transition-colors flex items-center gap-1">
-          {project.linkLabel}
-          <ArrowUpRight className="w-3 h-3" />
-        </span>
-      </div>
-      <h3 className="text-xl font-bold text-ink">{project.title}</h3>
-      <p className="mt-2 text-sm text-ink/60 leading-relaxed flex-1">
-        {project.description}
-      </p>
-    </div>
-  </a>
-);
-
-const Work = () => (
-  <section id="work" className="section-paper py-24 md:py-32">
-    <div className="container-1200 px-6">
-      <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+  return (
+    <article
+      className="reveal"
+      style={{
+        background: "rgb(251,250,247)",
+        borderRadius: "12px",
+        border: "1px solid rgba(26,31,36,0.08)",
+        overflow: "hidden",
+      }}
+    >
+      {/* Header */}
+      <div
+        className="flex items-center justify-between px-8 py-5"
+        style={{ borderBottom: "1px solid rgba(26,31,36,0.08)" }}
+      >
         <div>
-          <p className="mono-label text-signal mb-4">// selected_work</p>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-ink tracking-tight max-w-2xl">
-            Real client work. Live in production.
-          </h2>
+          <h3 className="font-sans font-semibold text-[18px] text-ink">
+            {project.name}
+          </h3>
+          <p className="text-[14px] text-muted-fg mt-0.5">{project.tag}</p>
         </div>
-        <p className="text-ink/60 max-w-md text-sm md:text-base leading-relaxed">
-          Every site we ship is built with care, clarity, and the client's
-          audience in mind.
-        </p>
+        <div className="flex items-center gap-3">
+          <span
+            className="font-mono-brand text-[10px] tracking-[0.12em] uppercase px-2.5 py-1"
+            style={{
+              borderRadius: "4px",
+              background: isLive
+                ? "rgba(124,154,146,0.15)"
+                : "rgba(232,98,61,0.15)",
+              color: isLive ? "rgb(95,122,114)" : "rgb(201,79,46)",
+            }}
+          >
+            {isLive ? "LIVE" : "IN PROGRESS"}
+          </span>
+          {project.url && (
+            <a
+              href={project.url}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`Visit ${project.name}`}
+              className="text-ink/40 hover:text-signal transition-colors"
+            >
+              <ArrowUpRight size={18} />
+            </a>
+          )}
+        </div>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-2">
-        {projects.map((p) => (
-          <ProjectCard key={p.title} project={p} />
+      {/* Split body */}
+      <div className="grid md:grid-cols-2 split-divider">
+        <div className="px-8 py-7">
+          <p
+            className="font-mono-brand text-[10px] tracking-[0.12em] uppercase mb-4"
+            style={{ color: "rgb(232,98,61)" }}
+          >
+            The Strategy
+          </p>
+          <ul className="space-y-3">
+            {project.strategy.map((point, i) => (
+              <li
+                key={i}
+                className="text-[14px] leading-relaxed"
+                style={{ color: "rgba(26,31,36,0.75)" }}
+              >
+                {point}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="px-8 py-7">
+          <p
+            className="font-mono-brand text-[10px] tracking-[0.12em] uppercase mb-4"
+            style={{ color: "rgb(95,122,114)" }}
+          >
+            The Build
+          </p>
+          <ul className="space-y-3">
+            {project.build.map((point, i) => (
+              <li
+                key={i}
+                className="text-[14px] leading-relaxed"
+                style={{ color: "rgba(26,31,36,0.75)" }}
+              >
+                {point}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      {/* Stack footer */}
+      <div
+        className="px-8 py-4 flex flex-wrap gap-2"
+        style={{ background: "rgba(26,31,36,0.03)" }}
+      >
+        {project.stack.map((tech) => (
+          <span
+            key={tech}
+            className="font-mono-brand text-[10px] text-muted-fg px-2.5 py-1"
+            style={{
+              background: "rgba(26,31,36,0.05)",
+              borderRadius: "4px",
+            }}
+          >
+            {tech}
+          </span>
         ))}
       </div>
-    </div>
-  </section>
-);
+    </article>
+  );
+};
+
+const Work = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const items = sectionRef.current?.querySelectorAll(".reveal");
+    if (!items) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    items.forEach((item) => observer.observe(item));
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section
+      id="work"
+      ref={sectionRef}
+      className="bg-paper py-20 md:py-28 px-6 md:px-10"
+    >
+      <div className="max-w-6xl mx-auto">
+        <div className="reveal mb-14 max-w-xl">
+          <p className="font-mono-brand text-[11px] tracking-[0.12em] uppercase text-signal mb-4">
+            Selected Work
+          </p>
+          <h2 className="font-sans font-bold text-[2.2rem] text-ink">
+            Every project, two lenses
+          </h2>
+          <p className="mt-4 text-[16px] text-muted-fg leading-relaxed">
+            The thinking that shaped the decision, and the system that shipped
+            it — side by side, because that's how the work actually happened.
+          </p>
+        </div>
+
+        <div className="space-y-8">
+          {PROJECTS.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
 
 export default Work;
