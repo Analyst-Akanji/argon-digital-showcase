@@ -33,7 +33,7 @@ const Hero = () => {
         <h1 style={{
           fontFamily: "Inter, sans-serif",
           fontWeight: 800,
-          fontSize: "clamp(2.4rem, 5vw, 3.8rem)",
+          fontSize: "clamp(2rem, 5vw, 3.8rem)",
           lineHeight: 1.08,
           color: "#F5F3EE",
           maxWidth: "780px",
@@ -90,9 +90,10 @@ const Hero = () => {
           </a>
         </div>
 
+        {/* Stats grid - 2x2 on mobile, 4 columns on desktop */}
         <div style={{
           display: "grid",
-          gridTemplateColumns: "repeat(4, 1fr)",
+          gridTemplateColumns: "repeat(2, 1fr)",
           border: "1px solid rgba(255,255,255,0.06)",
           borderRadius: "8px",
           overflow: "hidden",
@@ -104,7 +105,8 @@ const Hero = () => {
               style={{
                 background: "#0F1419",
                 padding: "20px",
-                borderRight: i < STATS.length - 1 ? "1px solid rgba(255,255,255,0.06)" : "none",
+                borderRight: i % 2 === 0 ? "1px solid rgba(255,255,255,0.06)" : "none",
+                borderBottom: i < 2 ? "1px solid rgba(255,255,255,0.06)" : "none",
               }}
             >
               <p style={{

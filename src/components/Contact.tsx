@@ -3,7 +3,7 @@ import { Mail } from "lucide-react";
 const WHATSAPP_NUMBER_DISPLAY = "0808 682 5973";
 const WHATSAPP_URL = "https://wa.me/2348086825973";
 const EMAIL_ADDRESS = "ibitowaemmanuel@gmail.com";
-const EMAIL_URL = `mailto:${EMAIL_ADDRESS}`;
+const EMAIL_URL = "mailto:ibitowaemmanuel@gmail.com";
 
 const WhatsAppIcon = () => (
   <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true" style={{ color: "#25D366", flexShrink: 0 }}>
@@ -12,24 +12,22 @@ const WhatsAppIcon = () => (
 );
 
 const Contact = () => (
-  <section
-    id="contact"
-    style={{ background: "#0F1419", padding: "80px 24px" }}
-  >
+  <section id="contact" style={{ background: "#0F1419", padding: "80px 24px" }}>
     <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+      {/* Stack on mobile, 2 columns on desktop */}
       <div style={{
         display: "grid",
-        gridTemplateColumns: "1fr 1fr",
-        gap: "48px",
-        alignItems: "start",
-      }}>
-
+        gridTemplateColumns: "1fr",
+        gap: "40px",
+      }}
+        className="md:grid-cols-2-contact"
+      >
         <div>
           <p style={{
             fontFamily: "JetBrains Mono, monospace",
             fontSize: "11px",
             letterSpacing: "0.12em",
-            textTransform: "uppercase",
+            textTransform: "uppercase" as const,
             color: "#E8623D",
             marginBottom: "16px",
             marginTop: 0,
@@ -44,22 +42,21 @@ const Contact = () => (
             color: "#F5F3EE",
             margin: 0,
           }}>
-            Tell us what<br />you are building.
+            Tell us what you are building.
           </h2>
           <p style={{
             fontFamily: "Inter, sans-serif",
             fontSize: "14px",
             color: "rgba(245,243,238,0.55)",
             lineHeight: 1.7,
-            maxWidth: "280px",
+            maxWidth: "100%",
             marginTop: "20px",
             marginBottom: 0,
           }}>
             Share a few details about your business and what you need. A proposal and quote typically follow within 24 hours.
           </p>
         </div>
-
-        <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+        <div style={{ display: "flex", flexDirection: "column" as const, gap: "16px" }}>
           <a
             href={WHATSAPP_URL}
             target="_blank"
@@ -82,7 +79,6 @@ const Contact = () => (
             <WhatsAppIcon />
             Chat on WhatsApp — {WHATSAPP_NUMBER_DISPLAY}
           </a>
-
           <a
             href={EMAIL_URL}
             style={{
@@ -103,14 +99,13 @@ const Contact = () => (
             <Mail size={18} style={{ flexShrink: 0 }} />
             {EMAIL_ADDRESS}
           </a>
-
           <a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
             style={{
               display: "block",
-              textAlign: "center",
+              textAlign: "center" as const,
               background: "#E8623D",
               color: "#F5F3EE",
               fontFamily: "Inter, sans-serif",
@@ -124,13 +119,12 @@ const Contact = () => (
           >
             Start a Project
           </a>
-
           <p style={{
             fontFamily: "Inter, sans-serif",
             fontSize: "12px",
             color: "rgba(245,243,238,0.4)",
             margin: 0,
-            textAlign: "center",
+            textAlign: "center" as const,
           }}>
             Based in Osogbo, Nigeria. Serving clients nationwide.
           </p>
