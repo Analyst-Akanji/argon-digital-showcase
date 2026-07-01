@@ -214,3 +214,9 @@
   background: #E8623D !important;
   color: #F5F3EE !important;
 }
+/* Mobile responsive fixes */
+@media (max-width: 768px) {
+  #contact > div > div {
+    grid-template-columns: 1fr !important;
+  }
+}
