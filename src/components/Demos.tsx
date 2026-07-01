@@ -19,7 +19,6 @@ type Demo = {
   name: string;
   description: string;
   link: string;
-  gradient: string;
   cta?: { label: string; href: string };
   highlight?: boolean;
 };
@@ -32,25 +31,22 @@ const demos: Demo[] = [
     description:
       "A complete school digital presence with enrolment inquiry system for a Creche to Secondary institution.",
     link: "https://shammah-rooted-excellence.vercel.app",
-    gradient: "from-indigo-600 to-blue-500",
   },
   {
-    tag: "REAL ESTATE",
+    tag: "REAL_ESTATE",
     icon: Building2,
     name: "Love of God Industries",
     description:
       "A property and land sales platform with inquiry flow for a Nigerian block industry and property business.",
     link: "https://loveofgod01.vercel.app",
-    gradient: "from-emerald-600 to-teal-500",
   },
   {
-    tag: "FOOD & RESTAURANT",
+    tag: "FOOD",
     icon: UtensilsCrossed,
     name: "Amoke Oge Food Center",
     description:
-      "A multi-location food ordering platform concept for a Lagos food brand with 6 branches, live menu, and kitchen management dashboard.",
+      "A multi-location food ordering platform for a Lagos food brand with 6 branches, live menu, and kitchen management dashboard.",
     link: "https://amoke-taste-hub.lovable.app",
-    gradient: "from-rose-600 to-orange-500",
   },
   {
     tag: "HOSPITALITY",
@@ -59,25 +55,21 @@ const demos: Demo[] = [
     description:
       "A premium café digital presence with menu showcase, ambience display, and online ordering experience.",
     link: "https://golden-ripple-lounge.lovable.app",
-    gradient: "from-amber-600 to-yellow-500",
   },
   {
-    tag: "YOUR BUSINESS",
+    tag: "YOUR_SECTOR",
     icon: Sparkles,
     name: "Your Business Here",
     description:
       "Don't see your industry? We build for any sector. Request a custom demo and see your business come to life.",
     link: "mailto:ibitowaemmanuel@gmail.com?subject=Demo%20Request%20%E2%80%94%20Argon%20Industries",
-    gradient: "from-orange-500 to-amber-400",
     highlight: true,
     cta: {
-      label: "Request a Demo",
+      label: "request_demo",
       href: "mailto:ibitowaemmanuel@gmail.com?subject=Demo%20Request%20%E2%80%94%20Argon%20Industries",
     },
   },
 ];
-
-const ORANGE = "#f59e0b";
 
 const Demos = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -86,44 +78,16 @@ const Demos = () => {
   useEffect(() => {
     if (!sectionRef.current) return;
     const ctx = gsap.context(() => {
-      gsap.from(sectionRef.current, {
-        opacity: 0,
-        duration: 0.8,
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 85%",
-        },
-      });
       gsap.from(cardsRef.current.filter(Boolean), {
         opacity: 0,
-        y: 40,
-        duration: 0.6,
-        stagger: 0.1,
+        y: 32,
+        duration: 0.5,
+        stagger: 0.08,
         ease: "power2.out",
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 75%",
+          start: "top 78%",
         },
-      });
-
-      cardsRef.current.forEach((card) => {
-        if (!card) return;
-        const enter = () =>
-          gsap.to(card, {
-            y: -8,
-            boxShadow: "0 20px 40px -10px rgba(245, 158, 11, 0.25)",
-            duration: 0.3,
-            ease: "power2.out",
-          });
-        const leave = () =>
-          gsap.to(card, {
-            y: 0,
-            boxShadow: "0 0px 0px 0px rgba(0,0,0,0)",
-            duration: 0.3,
-            ease: "power2.out",
-          });
-        card.addEventListener("mouseenter", enter);
-        card.addEventListener("mouseleave", leave);
       });
     }, sectionRef);
 
@@ -134,27 +98,23 @@ const Demos = () => {
     <section
       ref={sectionRef}
       id="demos"
-      className="py-20 md:py-28"
-      style={{ background: "hsl(232 38% 5%)" }}
+      className="bg-graphite py-24 md:py-32 border-t border-white/5"
     >
       <div className="container-1200 px-6">
-        <div className="text-center max-w-2xl mx-auto">
-          <p
-            className="text-xs sm:text-sm font-semibold tracking-[0.2em]"
-            style={{ color: ORANGE }}
-          >
-            LIVE DEMOS
-          </p>
-          <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-primary tracking-tight">
-            See what we build. Click to experience it.
-          </h2>
-          <p className="mt-4 text-base sm:text-lg text-muted-foreground">
-            Every demo below is a real working platform built by Argon Industries.
-            Click any card to explore it live.
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+          <div>
+            <p className="mono-label text-signal mb-4">// live_demos</p>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-foreground tracking-tight max-w-2xl">
+              See what we build. Click any card to explore it live.
+            </h2>
+          </div>
+          <p className="text-foreground/60 max-w-md text-sm md:text-base leading-relaxed">
+            Every demo below is a real, working platform built by Argon
+            Industries.
           </p>
         </div>
 
-        <div className="mt-14 grid gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {demos.map((demo, i) => {
             const Icon = demo.icon;
             const isHighlight = demo.highlight;
@@ -162,39 +122,42 @@ const Demos = () => {
               <div
                 key={demo.name}
                 ref={(el) => (cardsRef.current[i] = el)}
-                className={`group flex flex-col rounded-2xl overflow-hidden border ${
+                className={`group flex flex-col rounded-md border overflow-hidden transition-colors ${
                   isHighlight
-                    ? "border-transparent bg-card/80"
-                    : "border-border bg-card"
+                    ? "bg-signal/5 border-signal/40 hover:border-signal"
+                    : "bg-surface border-white/10 hover:border-white/25"
                 }`}
-                style={
-                  isHighlight
-                    ? {
-                        backgroundImage:
-                          "linear-gradient(hsl(var(--card)), hsl(var(--card))), linear-gradient(135deg, #f59e0b, #fbbf24)",
-                        backgroundOrigin: "border-box",
-                        backgroundClip: "padding-box, border-box",
-                        border: "2px solid transparent",
-                      }
-                    : undefined
-                }
               >
-                {/* Gradient header */}
+                {/* Header block — flat, no gradient */}
                 <div
-                  className={`relative h-[120px] bg-gradient-to-br ${demo.gradient} flex items-center justify-center`}
+                  className={`relative h-[110px] flex items-center justify-between px-6 border-b ${
+                    isHighlight
+                      ? "border-signal/30 bg-signal/10"
+                      : "border-white/10 bg-graphite"
+                  }`}
                 >
+                  <Icon
+                    className={`w-9 h-9 ${
+                      isHighlight ? "text-signal" : "text-sage"
+                    }`}
+                    strokeWidth={1.5}
+                  />
                   <span
-                    className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-bold tracking-wider text-white"
-                    style={{ backgroundColor: ORANGE }}
+                    className={`font-mono text-[10px] tracking-widest px-2 py-1 rounded-sm ${
+                      isHighlight
+                        ? "bg-signal text-white"
+                        : "bg-white/10 text-foreground/70"
+                    }`}
                   >
                     {demo.tag}
                   </span>
-                  <Icon className="w-12 h-12 text-white" strokeWidth={1.75} />
                 </div>
 
                 <div className="p-6 flex flex-col flex-1">
-                  <h3 className="text-xl font-bold text-primary">{demo.name}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed flex-1">
+                  <h3 className="text-lg font-bold text-foreground">
+                    {demo.name}
+                  </h3>
+                  <p className="mt-2 text-sm text-foreground/60 leading-relaxed flex-1">
                     {demo.description}
                   </p>
 
@@ -202,35 +165,18 @@ const Demos = () => {
                     {demo.cta ? (
                       <a
                         href={demo.cta.href}
-                        className="inline-flex w-full items-center justify-center gap-2 px-4 py-3 rounded-md font-semibold text-sm transition-colors"
-                        style={{
-                          backgroundColor: ORANGE,
-                          color: "hsl(230 40% 8%)",
-                        }}
+                        className="inline-flex w-full items-center justify-center gap-2 px-4 py-3 rounded-md bg-signal hover:bg-signal/90 text-white font-mono text-sm tracking-wide transition-colors"
                       >
-                        {demo.cta.label}
-                        <ArrowUpRight className="w-4 h-4" />
+                        {demo.cta.label} →
                       </a>
                     ) : (
                       <a
                         href={demo.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex w-full items-center justify-center gap-2 px-4 py-2.5 rounded-md font-semibold text-sm border-2 transition-colors"
-                        style={{
-                          borderColor: ORANGE,
-                          color: ORANGE,
-                        }}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.backgroundColor = ORANGE;
-                          e.currentTarget.style.color = "hsl(230 40% 8%)";
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.backgroundColor = "transparent";
-                          e.currentTarget.style.color = ORANGE;
-                        }}
+                        className="inline-flex w-full items-center justify-center gap-2 px-4 py-2.5 rounded-md border border-white/15 hover:border-signal hover:text-signal text-foreground font-mono text-sm tracking-wide transition-colors"
                       >
-                        View Demo
+                        view_demo
                         <ArrowUpRight className="w-4 h-4" />
                       </a>
                     )}

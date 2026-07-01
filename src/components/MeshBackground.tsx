@@ -4,31 +4,28 @@ interface MeshBackgroundProps {
   children: ReactNode;
 }
 
-const noiseSvg = `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/></svg>`;
+const noiseSvg = `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/></svg>`;
 
 const MeshBackground = ({ children }: MeshBackgroundProps) => (
   <>
-    {/* Mesh background layer */}
     <div
       aria-hidden="true"
       className="pointer-events-none fixed inset-0 overflow-hidden"
-      style={{ zIndex: 0, background: "#06060f" }}
+      style={{ zIndex: 0, background: "#0F1419" }}
     >
       <div className="mesh-orb mesh-orb-1" />
       <div className="mesh-orb mesh-orb-2" />
       <div className="mesh-orb mesh-orb-3" />
-      <div className="mesh-orb mesh-orb-4" />
       <div
         className="absolute inset-0"
         style={{
           backgroundImage: `url("${noiseSvg}")`,
-          opacity: 0.03,
+          opacity: 0.05,
           mixBlendMode: "overlay",
         }}
       />
     </div>
 
-    {/* Foreground content */}
     <div className="relative" style={{ zIndex: 1 }}>
       {children}
     </div>
@@ -37,36 +34,29 @@ const MeshBackground = ({ children }: MeshBackgroundProps) => (
       .mesh-orb {
         position: absolute;
         border-radius: 9999px;
-        filter: blur(120px);
+        filter: blur(140px);
         will-change: transform;
       }
       .mesh-orb-1 {
-        width: 60vw; height: 60vw;
-        top: -15vw; left: -15vw;
-        background: #0a0a1a;
-        opacity: 0.95;
-        animation: meshDrift1 24s ease-in-out infinite alternate;
+        width: 55vw; height: 55vw;
+        top: -15vw; left: -10vw;
+        background: #E8623D;
+        opacity: 0.10;
+        animation: meshDrift1 26s ease-in-out infinite alternate;
       }
       .mesh-orb-2 {
-        width: 55vw; height: 55vw;
-        top: -10vw; right: -15vw;
-        background: #7c3aed;
-        opacity: 0.45;
-        animation: meshDrift2 28s ease-in-out infinite alternate;
+        width: 50vw; height: 50vw;
+        top: 20vh; right: -15vw;
+        background: #7C9A92;
+        opacity: 0.12;
+        animation: meshDrift2 30s ease-in-out infinite alternate;
       }
       .mesh-orb-3 {
         width: 60vw; height: 60vw;
-        bottom: -20vw; left: -10vw;
-        background: #0d9488;
-        opacity: 0.40;
-        animation: meshDrift3 22s ease-in-out infinite alternate;
-      }
-      .mesh-orb-4 {
-        width: 50vw; height: 50vw;
-        bottom: -15vw; right: -15vw;
-        background: #e11d48;
-        opacity: 0.20;
-        animation: meshDrift4 20s ease-in-out infinite alternate;
+        bottom: -20vw; left: 10vw;
+        background: #0F1419;
+        opacity: 0.9;
+        animation: meshDrift3 24s ease-in-out infinite alternate;
       }
       @keyframes meshDrift1 {
         from { transform: translate(0,0) scale(1); }
@@ -78,11 +68,7 @@ const MeshBackground = ({ children }: MeshBackgroundProps) => (
       }
       @keyframes meshDrift3 {
         from { transform: translate(0,0) scale(1); }
-        to   { transform: translate(6vw, -8vh) scale(1.1); }
-      }
-      @keyframes meshDrift4 {
-        from { transform: translate(0,0) scale(1); }
-        to   { transform: translate(-8vw, -6vh) scale(1.2); }
+        to   { transform: translate(6vw, -8vh) scale(1.05); }
       }
       @media (prefers-reduced-motion: reduce) {
         .mesh-orb { animation: none !important; }
