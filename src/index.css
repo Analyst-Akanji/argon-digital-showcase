@@ -42,6 +42,16 @@
   * {
     box-sizing: border-box;
   }
+  html, body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
 
   html {
     scroll-behavior: smooth;
