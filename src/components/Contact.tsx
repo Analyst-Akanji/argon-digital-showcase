@@ -14,14 +14,7 @@ const WhatsAppIcon = () => (
 const Contact = () => (
   <section id="contact" style={{ background: "#0F1419", padding: "80px 24px" }}>
     <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-      {/* Stack on mobile, 2 columns on desktop */}
-      <div style={{
-        display: "grid",
-        gridTemplateColumns: "1fr",
-        gap: "40px",
-      }}
-        className="md:grid-cols-2-contact"
-      >
+      <div className="contact-grid">
         <div>
           <p style={{
             fontFamily: "JetBrains Mono, monospace",
@@ -49,7 +42,6 @@ const Contact = () => (
             fontSize: "14px",
             color: "rgba(245,243,238,0.55)",
             lineHeight: 1.7,
-            maxWidth: "100%",
             marginTop: "20px",
             marginBottom: 0,
           }}>
