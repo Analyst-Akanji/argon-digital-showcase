@@ -88,7 +88,7 @@ const AdminLeads = () => {
 
   if (!authed) {
     return (
-      <div className="min-h-screen flex items-center justify-center px-6">
+      <div className="admin-page min-h-screen flex items-center justify-center px-6">
         <form
           onSubmit={handleLogin}
           className="w-full max-w-md rounded-2xl border border-white/10 bg-white/5 p-8 space-y-6"
@@ -102,11 +102,11 @@ const AdminLeads = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Password"
-            className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 outline-none focus:border-[#E8623D] focus:ring-2 focus:ring-[#E8623D]/40"
+            className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 outline-none focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/40"
           />
           <button
             type="submit"
-            className="w-full rounded-lg bg-[#E8623D] hover:bg-[#c9502e] text-white font-semibold py-3 transition"
+            className="w-full rounded-lg bg-[#2563EB] hover:bg-[#1d4ed8] text-white font-semibold py-3 transition"
           >
             Sign In
           </button>
@@ -116,7 +116,7 @@ const AdminLeads = () => {
   }
 
   return (
-    <div className="min-h-screen px-4 sm:px-8 py-10">
+    <div className="admin-page min-h-screen px-4 sm:px-8 py-10">
       <div className="max-w-7xl mx-auto">
         <div className="flex items-center justify-between mb-8">
           <div>
@@ -133,7 +133,7 @@ const AdminLeads = () => {
 
         {loading ? (
           <div className="flex justify-center py-20">
-            <Loader2 className="h-8 w-8 animate-spin text-[#E8623D]" />
+            <Loader2 className="h-8 w-8 animate-spin text-[#2563EB]" />
           </div>
         ) : (
           <div className="rounded-2xl border border-white/10 bg-white/5 overflow-hidden">
@@ -147,7 +147,7 @@ const AdminLeads = () => {
                     <th className="text-left px-4 py-3">Sector</th>
                     <th className="text-left px-4 py-3">Budget</th>
                     <th className="text-left px-4 py-3">Status</th>
-                    <th className="text-left px-4 py-3">Notes</th>
+                    <th className="text-left px-4 py-3">Details</th>
                   </tr>
                 </thead>
                 <tbody className="text-white/90">
@@ -157,38 +157,53 @@ const AdminLeads = () => {
                         className="border-t border-white/10 hover:bg-white/5 cursor-pointer"
                         onClick={() => setExpanded(expanded === lead.id ? null : lead.id)}
                       >
-                        <td className="px-4 py-3 whitespace-nowrap">
+                        <td className="px-4 py-3 whitespace-nowrap text-white/70">
                           {new Date(lead.created_at).toLocaleDateString()}
                         </td>
-                        <td className="px-4 py-3">{lead.full_name}</td>
-                        <td className="px-4 py-3">{lead.business_name}</td>
-                        <td className="px-4 py-3">{lead.sector || "—"}</td>
-                        <td className="px-4 py-3 whitespace-nowrap">{lead.budget_range || "—"}</td>
+                        <td className="px-4 py-3 text-white font-medium">{lead.full_name}</td>
+                        <td className="px-4 py-3 text-white">{lead.business_name}</td>
+                        <td className="px-4 py-3 text-white/70">{lead.sector || "—"}</td>
+                        <td className="px-4 py-3 whitespace-nowrap text-white/70">{lead.budget_range || "—"}</td>
                         <td className="px-4 py-3" onClick={(e) => e.stopPropagation()}>
                           <select
                             value={lead.status}
                             onChange={(e) => updateStatus(lead.id, e.target.value)}
-                            className="rounded-md border border-white/10 bg-black/40 text-white px-2 py-1 text-xs focus:border-[#E8623D] outline-none"
+                            className="rounded-md border border-white/10 bg-black/40 text-white px-2 py-1 text-xs focus:border-[#2563EB] outline-none"
                           >
                             {STATUSES.map((s) => (
                               <option key={s} value={s}>{s}</option>
                             ))}
                           </select>
                         </td>
-                        <td className="px-4 py-3 text-white/50 text-xs">
-                          {expanded === lead.id ? "Hide" : "View"}
+                        <td className="px-4 py-3 text-[#2563EB] text-xs font-medium">
+                          {expanded === lead.id ? "Hide ▲" : "View ▼"}
                         </td>
                       </tr>
                       {expanded === lead.id && (
                         <tr className="bg-black/30 border-t border-white/10">
                           <td colSpan={7} className="px-4 py-5">
                             <div className="grid md:grid-cols-2 gap-6">
-                              <div className="space-y-2 text-sm">
-                                <div><span className="text-white/50">Email:</span> {lead.email}</div>
-                                <div><span className="text-white/50">Phone:</span> {lead.phone}</div>
-                                <div><span className="text-white/50">Currently managing via:</span> {lead.current_management || "—"}</div>
-                                <div className="pt-2"><span className="text-white/50">Business:</span><br/>{lead.business_description}</div>
-                                <div className="pt-2"><span className="text-white/50">Main challenge:</span><br/>{lead.main_challenge}</div>
+                              <div className="space-y-3 text-sm">
+                                <div>
+                                  <span className="text-white/50 text-xs uppercase tracking-wide">Email</span>
+                                  <p className="text-white mt-1">{lead.email}</p>
+                                </div>
+                                <div>
+                                  <span className="text-white/50 text-xs uppercase tracking-wide">Phone</span>
+                                  <p className="text-white mt-1">{lead.phone}</p>
+                                </div>
+                                <div>
+                                  <span className="text-white/50 text-xs uppercase tracking-wide">Currently managing via</span>
+                                  <p className="text-white mt-1">{lead.current_management || "—"}</p>
+                                </div>
+                                <div>
+                                  <span className="text-white/50 text-xs uppercase tracking-wide">What the business does</span>
+                                  <p className="text-white mt-1">{lead.business_description}</p>
+                                </div>
+                                <div>
+                                  <span className="text-white/50 text-xs uppercase tracking-wide">Main challenge</span>
+                                  <p className="text-white mt-1">{lead.main_challenge}</p>
+                                </div>
                               </div>
                               <NotesEditor
                                 initial={lead.notes || ""}
@@ -201,7 +216,11 @@ const AdminLeads = () => {
                     </Fragment>
                   ))}
                   {leads.length === 0 && (
-                    <tr><td colSpan={7} className="px-4 py-10 text-center text-white/50">No leads yet.</td></tr>
+                    <tr>
+                      <td colSpan={7} className="px-4 py-10 text-center text-white/50">
+                        No leads yet. Share your website and watch them come in.
+                      </td>
+                    </tr>
                   )}
                 </tbody>
               </table>
@@ -222,11 +241,12 @@ const NotesEditor = ({ initial, onSave }: { initial: string; onSave: (v: string)
         value={val}
         onChange={(e) => setVal(e.target.value)}
         rows={5}
-        className="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-white text-sm outline-none focus:border-[#E8623D] focus:ring-2 focus:ring-[#E8623D]/40"
+        className="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-white text-sm outline-none focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/40 placeholder:text-white/30"
+        placeholder="Add your notes about this lead here..."
       />
       <button
         onClick={() => onSave(val)}
-        className="mt-2 rounded-md bg-[#E8623D] hover:bg-[#c9502e] text-white text-sm font-medium px-4 py-2 transition"
+        className="mt-2 rounded-md bg-[#2563EB] hover:bg-[#1d4ed8] text-white text-sm font-medium px-4 py-2 transition"
       >
         Save notes
       </button>

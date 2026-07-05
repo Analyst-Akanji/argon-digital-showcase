@@ -236,3 +236,10 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+
+/* ── Admin dashboard dark background ── */
+.admin-page {
+  background-color: #0F1419;
+  min-height: 100vh;
+  color: white;
+}
