@@ -1,16 +1,31 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import Logo from "./Logo";
 
 const NAV_LINKS = [
-  { label: "WORK",     href: "#work" },
-  { label: "APPROACH", href: "#approach" },
-  { label: "ABOUT",    href: "#about" },
-  { label: "CONTACT",  href: "#contact" },
+  { label: "WORK",      href: "#work" },
+  { label: "APPROACH",  href: "#approach" },
+  { label: "ABOUT",     href: "#about" },
+  { label: "DEMOS",     href: "/demos" },
+  { label: "PORTFOLIO", href: "/portfolio" },
+  { label: "CONTACT",   href: "#contact" },
 ];
+
+// Anything starting with "/" is a real route (Link); anything starting
+// with "#" is an in-page anchor on the homepage (plain <a>).
+const isRoute = (href: string) => href.startsWith("/");
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+
+  const linkStyle = {
+    fontFamily: "JetBrains Mono, monospace",
+    fontSize: "11px",
+    letterSpacing: "0.12em",
+    color: "rgba(245,243,238,0.7)",
+    textDecoration: "none",
+  };
 
   return (
     <header
@@ -45,18 +60,15 @@ const Navbar = () => {
         }} className="hidden md:flex">
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
-              <a
-                href={link.href}
-                style={{
-                  fontFamily: "JetBrains Mono, monospace",
-                  fontSize: "11px",
-                  letterSpacing: "0.12em",
-                  color: "rgba(245,243,238,0.7)",
-                  textDecoration: "none",
-                }}
-              >
-                {link.label}
-              </a>
+              {isRoute(link.href) ? (
+                <Link to={link.href} style={linkStyle}>
+                  {link.label}
+                </Link>
+              ) : (
+                <a href={link.href} style={linkStyle}>
+                  {link.label}
+                </a>
+              )}
             </li>
           ))}
         </ul>
@@ -98,20 +110,37 @@ const Navbar = () => {
           <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
             {NAV_LINKS.map((link) => (
               <li key={link.href} style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-                <a
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  style={{
-                    display: "block",
-                    padding: "20px 0",
-                    fontFamily: "Inter, sans-serif",
-                    fontSize: "16px",
-                    color: "#F5F3EE",
-                    textDecoration: "none",
-                  }}
-                >
-                  {link.label}
-                </a>
+                {isRoute(link.href) ? (
+                  <Link
+                    to={link.href}
+                    onClick={() => setOpen(false)}
+                    style={{
+                      display: "block",
+                      padding: "20px 0",
+                      fontFamily: "Inter, sans-serif",
+                      fontSize: "16px",
+                      color: "#F5F3EE",
+                      textDecoration: "none",
+                    }}
+                  >
+                    {link.label}
+                  </Link>
+                ) : (
+                  <a
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    style={{
+                      display: "block",
+                      padding: "20px 0",
+                      fontFamily: "Inter, sans-serif",
+                      fontSize: "16px",
+                      color: "#F5F3EE",
+                      textDecoration: "none",
+                    }}
+                  >
+                    {link.label}
+                  </a>
+                )}
               </li>
             ))}
           </ul>

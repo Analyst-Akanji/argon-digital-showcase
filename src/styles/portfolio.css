@@ -1,0 +1,269 @@
+/* ============================================================
+   PM Portfolio — scoped under .pm-portfolio so it never collides
+   with Argon's own brand styles (blue/orange, mono-first).
+   Fonts required in index.html <head>:
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+   ============================================================ */
+
+.pm-portfolio {
+  --pm-ink: #1a1a1a;
+  --pm-paper: #f7f4ef;
+  --pm-paper-dim: #efeae1;
+  --pm-teal: #0f5c56;
+  --pm-amber: #c08b3d;
+  --pm-rule: rgba(26, 26, 26, 0.14);
+
+  background: var(--pm-paper);
+  color: var(--pm-ink);
+  font-family: "Inter", system-ui, sans-serif;
+  line-height: 1.55;
+  padding: 4rem 1.5rem 6rem;
+}
+
+.pm-portfolio h1,
+.pm-portfolio h2,
+.pm-portfolio h3 {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* ---------- Hero ---------- */
+
+.pm-hero {
+  max-width: 640px;
+  margin: 0 auto 5rem;
+  text-align: left;
+}
+
+.pm-hero__eyebrow {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--pm-teal);
+  margin: 0 0 0.75rem;
+}
+
+.pm-hero__name {
+  font-size: clamp(2.25rem, 5vw, 3.25rem);
+  margin: 0 0 1rem;
+}
+
+.pm-hero__statement {
+  font-size: 1.05rem;
+  max-width: 52ch;
+  color: rgba(26, 26, 26, 0.82);
+  margin: 0 0 1.5rem;
+}
+
+.pm-hero__meta {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.8rem;
+  color: rgba(26, 26, 26, 0.6);
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+/* ---------- Case study list ---------- */
+
+.pm-cases {
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+.pm-case {
+  position: relative;
+  border-top: 1px solid var(--pm-rule);
+  padding-top: 2.25rem;
+}
+
+.pm-case__stampzone {
+  position: absolute;
+  top: 1.75rem;
+  right: 0;
+}
+
+/* The signature element: a rotated ink-stamp badge */
+.pm-stamp {
+  display: inline-block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.7rem;
+  border-radius: 3px 7px 4px 8px;
+  transform: rotate(-4deg);
+  border: 1.5px solid currentColor;
+}
+
+.pm-stamp--live-paid,
+.pm-stamp--live {
+  color: var(--pm-teal);
+}
+
+.pm-stamp--in-progress {
+  color: var(--pm-amber);
+  border-style: dashed;
+}
+
+.pm-case__head {
+  display: flex;
+  gap: 1.25rem;
+  align-items: baseline;
+  padding-right: 7rem;
+}
+
+.pm-case__index {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.8rem;
+  color: rgba(26, 26, 26, 0.35);
+}
+
+.pm-case__name {
+  font-size: 1.6rem;
+  margin: 0 0 0.25rem;
+}
+
+.pm-case__tagline {
+  margin: 0;
+  color: rgba(26, 26, 26, 0.65);
+  font-size: 0.95rem;
+}
+
+.pm-case__role {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--pm-teal);
+  margin: 0.85rem 0 1.5rem;
+}
+
+.pm-case__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem 2rem;
+}
+
+.pm-case__grid h4 {
+  font-family: "Inter", sans-serif;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(26, 26, 26, 0.45);
+  margin: 0 0 0.4rem;
+}
+
+.pm-case__grid p,
+.pm-case__grid li {
+  font-size: 0.92rem;
+  color: rgba(26, 26, 26, 0.85);
+}
+
+.pm-case__grid ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.pm-case__footer {
+  margin-top: 1.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px dashed var(--pm-rule);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.pm-case__metrics,
+.pm-case__stack {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.pm-case__metrics li {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  background: var(--pm-paper-dim);
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  color: rgba(26, 26, 26, 0.75);
+}
+
+.pm-case__stack li {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  color: var(--pm-teal);
+}
+
+.pm-case__stack li::before {
+  content: "· ";
+}
+
+.pm-case__stack li:first-child::before {
+  content: "";
+}
+
+/* ---------- Footer ---------- */
+
+.pm-footer {
+  max-width: 640px;
+  margin: 5rem auto 0;
+  text-align: left;
+  border-top: 1px solid var(--pm-rule);
+  padding-top: 2rem;
+}
+
+.pm-footer p {
+  margin: 0 0 0.5rem;
+  color: rgba(26, 26, 26, 0.7);
+}
+
+.pm-footer__cta {
+  font-family: "JetBrains Mono", monospace;
+  color: var(--pm-teal);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 640px) {
+  .pm-case__grid {
+    grid-template-columns: 1fr;
+  }
+  .pm-case__head {
+    padding-right: 0;
+  }
+  .pm-case__stampzone {
+    position: static;
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+}
+
+/* ---------- Reduced motion / focus ---------- */
+
+.pm-portfolio a:focus-visible,
+.pm-portfolio button:focus-visible {
+  outline: 2px solid var(--pm-teal);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pm-portfolio * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
