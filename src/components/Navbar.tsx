@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import Logo from "./Logo";
+import "./Navbar.css";
 
 const NAV_LINKS = [
   { label: "WORK",      href: "#work" },
@@ -46,18 +47,17 @@ const Navbar = () => {
         justifyContent: "space-between",
       }}>
 
-        <a href="#top" style={{ textDecoration: "none" }}>
+        <Link to="/" style={{ textDecoration: "none" }}>
           <Logo />
-        </a>
+        </Link>
 
         <ul style={{
-          display: "flex",
           alignItems: "center",
           gap: "36px",
           listStyle: "none",
           margin: 0,
           padding: 0,
-        }} className="hidden lg:flex">
+        }} className="nav-desktop-links">
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
               {isRoute(link.href) ? (
@@ -76,7 +76,6 @@ const Navbar = () => {
         <a
           href="#contact"
           style={{
-            display: "none",
             background: "#E8623D",
             color: "#F5F3EE",
             fontFamily: "Inter, sans-serif",
@@ -86,14 +85,14 @@ const Navbar = () => {
             borderRadius: "6px",
             textDecoration: "none",
           }}
-          className="hidden lg:inline-block"
+          className="nav-cta"
         >
           Start a Project
         </a>
 
         <button
           style={{ background: "none", border: "none", color: "#F5F3EE", cursor: "pointer", padding: "4px" }}
-          className="lg:hidden"
+          className="nav-hamburger"
           aria-label="Toggle menu"
           onClick={() => setOpen((v) => !v)}
         >

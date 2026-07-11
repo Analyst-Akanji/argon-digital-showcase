@@ -1,4 +1,5 @@
 import { demos } from "../data/demos";
+import Navbar from "../components/Navbar";
 
 /**
  * Demo gallery — lives in Argon's own brand (blue/orange, mono headings),
@@ -8,7 +9,9 @@ import { demos } from "../data/demos";
  */
 export default function Demos() {
   return (
-    <div className="max-w-5xl mx-auto px-6 py-16">
+    <>
+      <Navbar />
+      <div className="max-w-5xl mx-auto px-6 py-16">
       <p className="font-mono text-xs uppercase tracking-widest text-orange-500 mb-2">
         Demos
       </p>
@@ -63,6 +66,7 @@ export default function Demos() {
           </div>
         ))}
       </div>
-    </div>
+      </div>
+    </>
   );
 }

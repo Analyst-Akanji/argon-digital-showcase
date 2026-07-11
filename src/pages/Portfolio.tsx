@@ -1,12 +1,15 @@
 import { caseStudies } from "../data/caseStudies";
 import CaseStudyCard from "../components/portfolio/CaseStudyCard";
+import Navbar from "../components/Navbar";
 import "../styles/portfolio.css";
 
 export default function Portfolio() {
   const liveCount = caseStudies.filter((s) => s.status !== "in-progress").length;
 
   return (
-    <div className="pm-portfolio">
+    <>
+      <Navbar />
+      <div className="pm-portfolio">
       <header className="pm-hero">
         <p className="pm-hero__eyebrow">Product Manager</p>
         <h1 className="pm-hero__name">Emmanuel Ibitowa</h1>
@@ -35,6 +38,7 @@ export default function Portfolio() {
           ibitowaemmanuel@gmail.com
         </a>
       </footer>
-    </div>
+      </div>
+    </>
   );
 }

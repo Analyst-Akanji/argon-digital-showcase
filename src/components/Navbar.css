@@ -1,0 +1,24 @@
+/* Plain CSS media queries for nav responsiveness.
+   Bypassing Tailwind's responsive utility classes here since they
+   weren't reliably toggling in this project. Below 1024px, the full
+   link row and CTA are hidden entirely and only the hamburger shows. */
+
+.nav-desktop-links,
+.nav-cta {
+  display: flex;
+}
+
+.nav-hamburger {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .nav-desktop-links,
+  .nav-cta {
+    display: none !important;
+  }
+
+  .nav-hamburger {
+    display: block !important;
+  }
+}
