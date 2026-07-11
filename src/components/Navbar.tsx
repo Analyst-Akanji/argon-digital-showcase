@@ -57,7 +57,7 @@ const Navbar = () => {
           listStyle: "none",
           margin: 0,
           padding: 0,
-        }} className="hidden md:flex">
+        }} className="hidden lg:flex">
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
               {isRoute(link.href) ? (
@@ -86,14 +86,14 @@ const Navbar = () => {
             borderRadius: "6px",
             textDecoration: "none",
           }}
-          className="hidden md:inline-block"
+          className="hidden lg:inline-block"
         >
           Start a Project
         </a>
 
         <button
           style={{ background: "none", border: "none", color: "#F5F3EE", cursor: "pointer", padding: "4px" }}
-          className="md:hidden"
+          className="lg:hidden"
           aria-label="Toggle menu"
           onClick={() => setOpen((v) => !v)}
         >
