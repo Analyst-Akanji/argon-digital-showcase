@@ -34,8 +34,16 @@ export default function Demos() {
             key={demo.id}
             className="border border-gray-200 rounded-lg p-5 flex flex-col gap-3 hover:shadow-md transition-shadow"
           >
-            <div className="h-32 rounded-md bg-gradient-to-br from-blue-600 to-orange-500 flex items-center justify-center text-white font-mono text-sm">
-              {demo.name}
+            <div className="h-32 rounded-md overflow-hidden bg-gradient-to-br from-blue-600 to-orange-500">
+              <img
+                src={demo.image}
+                alt={`${demo.name} preview`}
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  // Falls back to the gradient block if the screenshot file is missing
+                  (e.currentTarget as HTMLImageElement).style.display = "none";
+                }}
+              />
             </div>
             <h3 className="font-semibold text-lg">{demo.name}</h3>
             <p className="text-sm text-gray-600 flex-1">{demo.blurb}</p>

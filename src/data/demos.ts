@@ -4,6 +4,7 @@ export interface Demo {
   blurb: string;
   url: string;
   stack: string[];
+  image: string;
 }
 
 /**
@@ -17,6 +18,7 @@ export const demos: Demo[] = [
     blurb: "Tailored trousers brand storefront concept",
     url: "https://corebymo-tailored-tales.lovable.app",
     stack: ["React"],
+    image: "/demo-screenshots/corebymo.png",
   },
   {
     id: "khadz-t",
@@ -24,6 +26,7 @@ export const demos: Demo[] = [
     blurb: "Premium rooftop bistro booking & menu showcase",
     url: "https://sky-high-render.lovable.app",
     stack: ["React", "Supabase"],
+    image: "/demo-screenshots/khadz-t.png",
   },
   {
     id: "amoke",
@@ -31,6 +34,7 @@ export const demos: Demo[] = [
     blurb: "Multi-branch food delivery ordering experience",
     url: "https://amoke-taste-hub.lovable.app",
     stack: ["React", "Supabase"],
+    image: "/demo-screenshots/amoke.png",
   },
   {
     id: "1506-cafe",
@@ -38,5 +42,6 @@ export const demos: Demo[] = [
     blurb: "Golden Ripple Hour — cafe shop concept demo",
     url: "https://golden-ripple-lounge.lovable.app",
     stack: ["React"],
+    image: "/demo-screenshots/1506-cafe.png",
   },
 ];
