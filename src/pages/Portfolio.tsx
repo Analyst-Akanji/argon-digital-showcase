@@ -1,10 +1,25 @@
+import { useEffect } from "react";
 import { caseStudies } from "../data/caseStudies";
 import CaseStudyCard from "../components/portfolio/CaseStudyCard";
 import Navbar from "../components/Navbar";
 import "../styles/portfolio.css";
 
+const FRAUNCES_URL =
+  "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&display=swap";
+
 export default function Portfolio() {
   const liveCount = caseStudies.filter((s) => s.status !== "in-progress").length;
+
+  // Load Fraunces only when someone actually visits this page — it's
+  // not used anywhere else on the site, so no reason to ship it on
+  // every homepage/demos page load.
+  useEffect(() => {
+    if (document.querySelector(`link[href="${FRAUNCES_URL}"]`)) return;
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = FRAUNCES_URL;
+    document.head.appendChild(link);
+  }, []);
 
   return (
     <>

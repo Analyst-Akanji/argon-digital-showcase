@@ -39,6 +39,8 @@ export default function Demos() {
                 src={demo.image}
                 alt={`${demo.name} preview`}
                 className="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
                 onError={(e) => {
                   // Falls back to the gradient block if the screenshot file is missing
                   (e.currentTarget as HTMLImageElement).style.display = "none";

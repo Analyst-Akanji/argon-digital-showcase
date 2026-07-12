@@ -5,17 +5,19 @@ import Logo from "./Logo";
 import "./Navbar.css";
 
 const NAV_LINKS = [
-  { label: "WORK",      href: "#work" },
-  { label: "APPROACH",  href: "#approach" },
-  { label: "ABOUT",     href: "#about" },
-  { label: "DEMOS",     href: "/demos" },
-  { label: "PORTFOLIO", href: "/portfolio" },
-  { label: "CONTACT",   href: "#contact" },
+  { label: "WORK",      href: "/#work",    type: "anchor" },
+  { label: "APPROACH",  href: "/#approach", type: "anchor" },
+  { label: "ABOUT",     href: "/#about",   type: "anchor" },
+  { label: "DEMOS",     href: "/demos",    type: "route" },
+  { label: "PORTFOLIO", href: "/portfolio", type: "route" },
+  { label: "CONTACT",   href: "/#contact", type: "anchor" },
 ];
 
-// Anything starting with "/" is a real route (Link); anything starting
-// with "#" is an in-page anchor on the homepage (plain <a>).
-const isRoute = (href: string) => href.startsWith("/");
+// Only real pages (Demos, Portfolio) use client-side <Link> routing.
+// Section anchors stay as plain <a> tags so the browser handles the
+// "navigate home, then scroll to section" behavior correctly when
+// clicked from a page other than the homepage.
+const isRoute = (link: { type: string }) => link.type === "route";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -60,7 +62,7 @@ const Navbar = () => {
         }} className="nav-desktop-links">
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
-              {isRoute(link.href) ? (
+              {isRoute(link) ? (
                 <Link to={link.href} style={linkStyle}>
                   {link.label}
                 </Link>
@@ -74,7 +76,7 @@ const Navbar = () => {
         </ul>
 
         <a
-          href="#contact"
+          href="/#contact"
           style={{
             background: "#E8623D",
             color: "#F5F3EE",
@@ -109,7 +111,7 @@ const Navbar = () => {
           <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
             {NAV_LINKS.map((link) => (
               <li key={link.href} style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-                {isRoute(link.href) ? (
+                {isRoute(link) ? (
                   <Link
                     to={link.href}
                     onClick={() => setOpen(false)}
@@ -144,7 +146,7 @@ const Navbar = () => {
             ))}
           </ul>
           <a
-            href="#contact"
+            href="/#contact"
             onClick={() => setOpen(false)}
             style={{
               display: "block",
