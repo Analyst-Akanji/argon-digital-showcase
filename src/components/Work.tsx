@@ -39,11 +39,47 @@ const PROJECTS = [
     stack: ["React", "Supabase", "Paystack", "Vercel"],
   },
   {
+    id: "mofashionforge",
+    name: "Mo FashionForge",
+    tag: "Couture & Tailoring Brand Storefront",
+    status: "in-progress" as const,
+    url: "https://mofashionforge.vercel.app/",
+    strategy: [
+      "Client needed a storefront across multiple product categories plus a way to capture custom, made-to-order requests without losing the brand's premium feel.",
+      "Phased the build into independently shippable pieces — Shop, About, Custom Orders, Gallery, Blog, Contact — so the client could start taking custom orders before the full site was finished.",
+      "Tied payment milestones to delivery phases to de-risk the build for both sides.",
+    ],
+    build: [
+      "React + Vite frontend structured across six distinct pages, styled to the brand's black/ivory/olive/gold palette.",
+      "Custom order intake form writes directly to a dedicated Supabase table for the client to review.",
+      "Admin dashboard for product and collection management currently in progress.",
+    ],
+    stack: ["React", "Supabase", "Vercel", "Tailwind"],
+  },
+  {
+    id: "jsa",
+    name: "Jehovah Shammah Academy",
+    tag: "School Platform — Admin, Parent Portal & Records",
+    status: "in-progress" as const,
+    url: "https://jsa-website-alpha.vercel.app/",
+    strategy: [
+      "The school had zero digital presence — admissions, student records, and report cards were entirely manual.",
+      "Designed a 9-table relational schema with role-based row-level security, so admin access and parent access stay cleanly separated on one platform.",
+      "Built a report card system with class-based subject auto-population instead of re-entering the same structure every term.",
+    ],
+    build: [
+      "Public site, admin dashboard, and a gated parent portal, all on Supabase Auth.",
+      "41 students already enrolled and actively managed through the platform across JSS1–SS1.",
+      "Report card PDF generation and email notifications pending final domain and Resend setup.",
+    ],
+    stack: ["React", "TypeScript", "Supabase", "Tailwind"],
+  },
+  {
     id: "loveofgod",
     name: "Love of God Properties & Block Industry",
     tag: "Construction E-Commerce + Land Platform",
     status: "in-progress" as const,
-    url: undefined,
+    url: "https://loveofgod01.vercel.app/",
     strategy: [
       "Two distinct business lines needed separate buyer journeys without feeling like two different products.",
       "Moved client fully off WhatsApp ordering onto a real e-commerce checkout with delivery zones.",
