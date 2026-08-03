@@ -102,7 +102,7 @@ const About = () => {
           </p>
 
           <a
-            href="mailto:ibitowaemmanuel@gmail.com?subject=Quote%20Request"
+            href="#quote"
             className="font-mono-brand text-[13px] mt-6 inline-flex items-center gap-2"
             style={{ color: "#E8623D", textDecoration: "none" }}
           >
