@@ -129,6 +129,21 @@
 .pm-case__name {
   font-size: 1.6rem;
   margin: 0 0 0.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pm-case__link {
+  color: var(--pm-teal);
+  opacity: 0.55;
+  display: inline-flex;
+  transition: opacity 0.2s ease;
+}
+
+.pm-case__link:hover,
+.pm-case__link:focus-visible {
+  opacity: 1;
 }
 
 .pm-case__tagline {

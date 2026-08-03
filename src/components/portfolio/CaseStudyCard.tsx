@@ -1,3 +1,4 @@
+import { ArrowUpRight } from "lucide-react";
 import type { CaseStudy } from "../../data/caseStudies";
 import StatusStamp from "./StatusStamp";
 
@@ -16,7 +17,20 @@ export default function CaseStudyCard({ study, index }: CaseStudyCardProps) {
       <div className="pm-case__head">
         <span className="pm-case__index">{String(index + 1).padStart(2, "0")}</span>
         <div>
-          <h3 className="pm-case__name">{study.name}</h3>
+          <h3 className="pm-case__name">
+            {study.name}
+            {study.url && (
+              <a
+                href={study.url}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`Visit ${study.name}`}
+                className="pm-case__link"
+              >
+                <ArrowUpRight size={16} />
+              </a>
+            )}
+          </h3>
           <p className="pm-case__tagline">{study.tagline}</p>
         </div>
       </div>

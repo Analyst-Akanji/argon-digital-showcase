@@ -1,6 +1,11 @@
+import { PROJECTS } from "../data/projects";
+
+const platformsShipped = PROJECTS.length;
+const activeEngagements = PROJECTS.filter((p) => p.status === "in-progress").length;
+
 const STATS = [
-  { value: "3", label: "Platforms Shipped" },
-  { value: "2", label: "Active Engagements" },
+  { value: String(platformsShipped), label: "Platforms Shipped" },
+  { value: String(activeEngagements), label: "Active Engagements" },
   { value: "PM", label: "Certified, Sept 2025" },
   { value: "Full-Stack", label: "React · Supabase · Vercel" },
 ];

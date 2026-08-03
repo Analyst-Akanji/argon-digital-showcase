@@ -12,6 +12,7 @@ export interface CaseStudy {
   outcome: string;
   metrics: string[];
   stack: string[];
+  url?: string;
 }
 
 /**
@@ -21,6 +22,32 @@ export interface CaseStudy {
  * want visible to a public visitor or hiring manager.
  */
 export const caseStudies: CaseStudy[] = [
+  {
+    id: "argon-schoolos",
+    name: "Argon SchoolOS",
+    tagline: "Multi-tenant school management SaaS — Argon's flagship product",
+    status: "live",
+    role: "Founder, Product Manager & Builder",
+    problem:
+      "Nigerian private schools run admissions, attendance, results, and fees on paper or fragmented spreadsheets. The dominant incumbents gate pricing behind a sales demo and are moving up-market, leaving smaller schools with no simple, transparently priced option.",
+    process: [
+      "Designed a multi-tenant architecture where signup auto-creates an organization and owner membership, generating the org ID client-side to resolve an RLS chicken-and-egg problem on insert",
+      "Replaced Supabase's broken Dashboard webhooks with direct pg_net database triggers as the reliable pattern for every table-insert-to-email workflow",
+      "Built a free-to-Pro tier split (Student Records, Admissions, Attendance free; Examinations, Report Cards, Fee Tracking, Parent Communication paid) with five usage-based pricing bands and admin-side band-mismatch enforcement",
+      "Shipped a full billing loop: band selection, bank transfer receipt upload, admin approval dashboard, and automatic confirmation email to the school",
+    ],
+    decisions:
+      "Chose published, transparent pricing and a genuinely usable free tier as the wedge against demo-gated incumbents, and shipped with manual bank-transfer billing rather than delaying launch for automated Paystack/Flutterwave integration.",
+    outcome:
+      "First pilot school (Jehovah Shammah Academy) is live on the Pro plan with the full pipeline verified end to end — signup, billing, admin approval, and report card generation with dual school-stamp embedding delivered straight to parent inboxes.",
+    metrics: [
+      "First paying pilot school live end-to-end",
+      "5-band usage-based pricing model shipped and enforced",
+      "36 schools expressed pilot interest in the original outreach survey",
+    ],
+    stack: ["React", "TypeScript", "Supabase", "Tailwind", "Vercel", "Resend"],
+    url: "https://schoolos.argonindustries.com.ng",
+  },
   {
     id: "tubeyonirun",
     name: "TubeyOnirun",
