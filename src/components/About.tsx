@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import founderPhoto from "../assets/emmanuel-ibitowa.jpg";
 
 const SKILLS = [
   "Product Management",
@@ -43,12 +44,33 @@ const About = () => {
           </p>
           <h2
             className="font-sans font-bold text-ink leading-tight"
-            style={{ fontSize: "clamp(1.8rem, 4vw, 2.4rem)" }}
+            style={{ fontSize: "clamp(1.8rem, 4vw, 2.4rem)", marginBottom: "28px" }}
           >
             One person.
             <br />
             Two disciplines.
           </h2>
+
+          <img
+            src={founderPhoto}
+            alt="Emmanuel Ibitowa, Founder of Argon Industries"
+            style={{
+              width: "220px",
+              height: "220px",
+              objectFit: "cover",
+              objectPosition: "top center",
+              borderRadius: "12px",
+              border: "1px solid rgba(26,31,36,0.1)",
+              marginBottom: "16px",
+              display: "block",
+            }}
+          />
+          <p
+            className="font-mono-brand text-[11px] tracking-[0.08em] uppercase"
+            style={{ color: "rgba(26,31,36,0.55)" }}
+          >
+            Emmanuel Ibitowa — Founder
+          </p>
         </div>
 
         {/* Right */}
@@ -58,20 +80,34 @@ const About = () => {
             style={{ color: "rgba(26,31,36,0.75)" }}
           >
             Argon Industries is led by Emmanuel Ibitowa — a certified Product
-            Manager and full-stack developer based in Osogbo, Nigeria. Most
+            Manager and full-stack developer based in Osogbo, Nigeria. He didn't
+            arrive at this from a classroom. He arrived at it from running a
+            school, watching a stylist lose bookings to unanswered WhatsApp
+            messages, and seeing business owner after business owner keep
+            their entire livelihood balanced on a notebook and a prayer. Most
             studios hand a client off between a strategist and a developer.
-            Argon doesn't, because the gap between those two roles is usually
-            where projects go wrong: scope decided without technical context, or
-            code shipped without a clear business reason behind it.
+            Argon doesn't, because that gap between "the plan" and "the code"
+            is usually where a small business's money quietly leaks out.
           </p>
           <p
             className="mt-5 text-[16px] leading-[1.75]"
             style={{ color: "rgba(26,31,36,0.75)" }}
           >
             Every Argon project is scoped like a product manager would scope
-            it, and built like an engineer would build it. Same person, both
-            lenses, start to finish.
+            it, and built like an engineer would build it — same person, both
+            lenses, from the first conversation to the moment your customers
+            are actually using it. If your business is still running on
+            spreadsheets, direct messages, and hope, that's exactly the gap
+            Argon exists to close.
           </p>
+
+          <a
+            href="mailto:ibitowaemmanuel@gmail.com?subject=Quote%20Request"
+            className="font-mono-brand text-[13px] mt-6 inline-flex items-center gap-2"
+            style={{ color: "#E8623D", textDecoration: "none" }}
+          >
+            Get a Quote →
+          </a>
 
           <div className="mt-8 flex flex-wrap gap-2">
             {SKILLS.map((skill) => (
