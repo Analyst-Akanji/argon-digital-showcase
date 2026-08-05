@@ -25,7 +25,7 @@ const MANAGEMENT = [
   "Other",
 ];
 
-const BUDGETS = ["₦120k–₦180k", "₦250k–₦500k", "₦600k+", "Not sure yet"];
+const BUDGETS = ["₦180k–₦280k", "₦350k–₦500k", "₦700k+", "Not sure yet"];
 
 const inputCls =
   "w-full rounded-md border border-black/10 bg-white px-4 py-3 text-ink placeholder:text-ink/40 outline-none transition focus:border-signal focus:ring-2 focus:ring-signal/25";
