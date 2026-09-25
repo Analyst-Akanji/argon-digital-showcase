@@ -25,7 +25,7 @@ const Contact = () => (
             marginBottom: "16px",
             marginTop: 0,
           }}>
-            Start a Project
+            Tell Us What's Slowing You Down
           </p>
           <h2 style={{
             fontFamily: "Inter, sans-serif",
@@ -35,7 +35,7 @@ const Contact = () => (
             color: "#F5F3EE",
             margin: 0,
           }}>
-            Tell us what you are building.
+            Tell us what's slowing your business down.
           </h2>
           <p style={{
             fontFamily: "Inter, sans-serif",
@@ -109,7 +109,7 @@ const Contact = () => (
               marginTop: "8px",
             }}
           >
-            Start a Project
+            Tell Us What's Slowing You Down
           </a>
           <p style={{
             fontFamily: "Inter, sans-serif",

@@ -15,7 +15,7 @@ export const PROJECTS: Project[] = [
   {
     id: "argon-schoolos",
     name: "Argon SchoolOS",
-    tag: "Multi-Tenant School Management SaaS — Flagship Product",
+    tag: "A school management system built around how the school actually operates — Argon's flagship product",
     status: "live",
     url: "https://schoolos.argonindustries.com.ng",
     strategy: [

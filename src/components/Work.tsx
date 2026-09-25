@@ -154,8 +154,9 @@ const Work = () => {
             Every project, two lenses
           </h2>
           <p className="mt-4 text-[16px] text-muted-fg leading-relaxed">
-            The thinking that shaped the decision, and the system that shipped
-            it — side by side, because that's how the work actually happened.
+            Booking systems, e-commerce storefronts, school management
+            platforms, and customer portals — the thinking that shaped each
+            decision, and the system that shipped it, side by side.
           </p>
         </div>
 

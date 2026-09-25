@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { PROJECTS } from "../data/projects";
 
 const platformsShipped = PROJECTS.length;
@@ -10,11 +11,35 @@ const STATS = [
   { value: "Full-Stack", label: "React · Supabase · Vercel" },
 ];
 
+// Drop images into /public/hero/ with these exact filenames (or edit the
+// list below to match whatever you use). Any count works — the rotation
+// just cycles through however many are listed here.
+const HERO_IMAGES = [
+  "/hero/hero-1.jpg",
+  "/hero/hero-2.jpg",
+  "/hero/hero-3.jpg",
+  "/hero/hero-4.jpg",
+];
+
+const HERO_INTERVAL_MS = 6000;
+
 const Hero = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    if (HERO_IMAGES.length < 2) return;
+    const id = setInterval(() => {
+      setActiveIndex((i) => (i + 1) % HERO_IMAGES.length);
+    }, HERO_INTERVAL_MS);
+    return () => clearInterval(id);
+  }, []);
+
   return (
     <section
       id="top"
       style={{
+        position: "relative",
+        overflow: "hidden",
         background: "#0F1419",
         paddingTop: "108px",
         paddingBottom: "96px",
@@ -22,7 +47,35 @@ const Hero = () => {
         paddingRight: "24px",
       }}
     >
-      <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+      {/* Full-bleed rotating background images */}
+      <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
+        {HERO_IMAGES.map((src, i) => (
+          <div
+            key={src}
+            style={{
+              position: "absolute",
+              inset: 0,
+              backgroundImage: `url(${src})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              opacity: i === activeIndex ? 1 : 0,
+              transition: "opacity 1.6s ease-in-out",
+            }}
+          />
+        ))}
+        {/* Dark overlay so the existing light text stays readable over any photo */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background:
+              "linear-gradient(180deg, rgba(15,20,25,0.88) 0%, rgba(15,20,25,0.82) 55%, rgba(15,20,25,0.92) 100%)",
+          }}
+        />
+      </div>
+
+      {/* Content sits above the image/overlay layers */}
+      <div style={{ position: "relative", zIndex: 1, maxWidth: "1200px", margin: "0 auto" }}>
         <p style={{
           fontFamily: "JetBrains Mono, monospace",
           fontSize: "11px",
@@ -32,7 +85,7 @@ const Hero = () => {
           marginBottom: "24px",
           marginTop: 0,
         }}>
-          Digital Product Studio — Osogbo, Nigeria
+          Custom Business Systems — Osogbo, Nigeria
         </p>
 
         <h1 style={{
@@ -44,9 +97,11 @@ const Hero = () => {
           maxWidth: "780px",
           margin: 0,
         }}>
-          We think like product managers.
+          Your business has outgrown
           <br />
-          We build like engineers.
+          WhatsApp, spreadsheets, and
+          <br />
+          manual processes.
         </h1>
 
         <p style={{
@@ -58,9 +113,10 @@ const Hero = () => {
           marginTop: "28px",
           marginBottom: 0,
         }}>
-          Argon Industries pairs structured product strategy with hands-on
-          full-stack development — one person, both disciplines, every
-          project shipped end to end.
+          We design and build custom systems that make your operations
+          easier to run and your customers easier to serve — one person,
+          product strategy and full-stack engineering, every project
+          shipped end to end.
         </p>
 
         <div style={{ display: "flex", flexWrap: "wrap", gap: "16px", marginTop: "36px", alignItems: "center" }}>
@@ -103,12 +159,13 @@ const Hero = () => {
           borderRadius: "8px",
           overflow: "hidden",
           marginTop: "64px",
+          background: "rgba(15,20,25,0.4)",
+          backdropFilter: "blur(6px)",
         }}>
           {STATS.map((stat, i) => (
             <div
               key={stat.label}
               style={{
-                background: "#0F1419",
                 padding: "20px",
                 borderRight: i % 2 === 0 ? "1px solid rgba(255,255,255,0.06)" : "none",
                 borderBottom: i < 2 ? "1px solid rgba(255,255,255,0.06)" : "none",

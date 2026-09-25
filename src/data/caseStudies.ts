@@ -7,6 +7,7 @@ export interface CaseStudy {
   status: ProjectStatus;
   role: string;
   problem: string;
+  whyItMattered: string;
   process: string[];
   decisions: string;
   outcome: string;
@@ -29,7 +30,9 @@ export const caseStudies: CaseStudy[] = [
     status: "live",
     role: "Founder, Product Manager & Builder",
     problem:
-      "Nigerian private schools run admissions, attendance, results, and fees on paper or fragmented spreadsheets. The dominant incumbents gate pricing behind a sales demo and are moving up-market, leaving smaller schools with no simple, transparently priced option.",
+      "Nigerian private schools run admissions, attendance, results, and fees on paper or fragmented spreadsheets.",
+    whyItMattered:
+      "The dominant incumbents gate pricing behind a sales demo and are moving up-market, leaving smaller schools with no simple, transparently priced option.",
     process: [
       "Designed a multi-tenant architecture where signup auto-creates an organization and owner membership, generating the org ID client-side to resolve an RLS chicken-and-egg problem on insert",
       "Replaced Supabase's broken Dashboard webhooks with direct pg_net database triggers as the reliable pattern for every table-insert-to-email workflow",
@@ -54,8 +57,9 @@ export const caseStudies: CaseStudy[] = [
     tagline: "Booking platform for a beauty services business",
     status: "live-paid",
     role: "Product Manager & Builder",
-    problem:
-      "Appointments were being managed through DMs and calls, leading to missed bookings and no reliable payment record.",
+    problem: "Appointments were being managed through DMs and calls.",
+    whyItMattered:
+      "That led to missed bookings and no reliable payment record — lost business with no way to track it.",
     process: [
       "Scoped a booking flow with service selection, payment, and receipt upload",
       "Built on Supabase + Vercel with two-way email confirmations",
@@ -78,8 +82,9 @@ export const caseStudies: CaseStudy[] = [
     tagline: "E-commerce storefront for a fashion retail brand",
     status: "live-paid",
     role: "Product Manager & Builder",
-    problem:
-      "No online storefront existed — all orders were manual, with no automated confirmation or record-keeping.",
+    problem: "No online storefront existed.",
+    whyItMattered:
+      "All orders were manual, with no automated confirmation or record-keeping.",
     process: [
       "Designed a Supabase schema for customers and orders",
       "Built database webhooks to trigger order/payment notifications automatically",
@@ -102,8 +107,9 @@ export const caseStudies: CaseStudy[] = [
     tagline: "Full digital platform for a school — as its principal",
     status: "in-progress",
     role: "Product Manager, Builder & End User (School Principal)",
-    problem:
-      "The school had no digital presence — admissions, student records, and report cards were entirely manual, and I was managing the school myself.",
+    problem: "The school had no digital presence.",
+    whyItMattered:
+      "Admissions, student records, and report cards were entirely manual, and I was managing the school myself.",
     process: [
       "Wrote a PRD covering public site, admin dashboard, and a gated parent portal",
       "Designed a 9-table relational schema with role-based row-level security (admin vs. verified parent access)",
@@ -128,6 +134,8 @@ export const caseStudies: CaseStudy[] = [
     role: "Product Manager & Builder",
     problem:
       "The brand needed a proper storefront across multiple product categories, plus a way to take custom, made-to-order requests.",
+    whyItMattered:
+      "Without one, there was no organized way to sell across categories or capture custom orders.",
     process: [
       "Structured the build in phases: Shop, Custom Orders, Gallery, Blog, Contact",
       "Built a custom-order intake form that writes directly to a dedicated Supabase table for the client to review",
@@ -150,6 +158,8 @@ export const caseStudies: CaseStudy[] = [
     role: "Product Manager & Builder",
     problem:
       "A 67-year-old client with two distinct business lines (block manufacturing and land sales) needed a single platform, with almost no technical vocabulary to draw requirements from.",
+    whyItMattered:
+      "Orders for both business lines were being taken informally over WhatsApp, with no shared view of orders, stock, or revenue.",
     process: [
       "Ran requirements gathering in plain, non-technical language",
       "Split the platform into two clear wings so each business line could be navigated independently",

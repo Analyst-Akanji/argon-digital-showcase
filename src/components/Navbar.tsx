@@ -89,7 +89,7 @@ const Navbar = () => {
           }}
           className="nav-cta"
         >
-          Start a Project
+          Tell Us What's Slowing You Down
         </a>
 
         <button
@@ -162,7 +162,7 @@ const Navbar = () => {
               marginTop: "24px",
             }}
           >
-            Start a Project
+            Tell Us What's Slowing You Down
           </a>
         </div>
       )}

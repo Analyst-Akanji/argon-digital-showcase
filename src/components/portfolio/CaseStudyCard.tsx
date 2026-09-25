@@ -41,9 +41,13 @@ export default function CaseStudyCard({ study, index }: CaseStudyCardProps) {
         <div>
           <h4>Problem</h4>
           <p>{study.problem}</p>
+          <p>
+            <strong>Why it mattered: </strong>
+            {study.whyItMattered}
+          </p>
         </div>
         <div>
-          <h4>Process</h4>
+          <h4>Solution</h4>
           <ul>
             {study.process.map((step) => (
               <li key={step}>{step}</li>
@@ -55,7 +59,7 @@ export default function CaseStudyCard({ study, index }: CaseStudyCardProps) {
           <p>{study.decisions}</p>
         </div>
         <div>
-          <h4>Outcome</h4>
+          <h4>Result</h4>
           <p>{study.outcome}</p>
         </div>
       </div>
@@ -66,11 +70,23 @@ export default function CaseStudyCard({ study, index }: CaseStudyCardProps) {
             <li key={m}>{m}</li>
           ))}
         </ul>
-        <ul className="pm-case__stack">
-          {study.stack.map((tech) => (
-            <li key={tech}>{tech}</li>
-          ))}
-        </ul>
+        <div>
+          <p style={{
+            fontFamily: "JetBrains Mono, monospace",
+            fontSize: "10px",
+            letterSpacing: "0.08em",
+            textTransform: "uppercase",
+            color: "#6B7178",
+            margin: "0 0 8px",
+          }}>
+            Under the hood
+          </p>
+          <ul className="pm-case__stack">
+            {study.stack.map((tech) => (
+              <li key={tech}>{tech}</li>
+            ))}
+          </ul>
+        </div>
       </div>
     </article>
   );

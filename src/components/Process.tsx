@@ -63,7 +63,8 @@ const Process = () => {
             How We Work
           </p>
           <h2 className="font-sans font-bold text-[2.2rem] text-paper">
-            Strategy and build, never separated
+            The person who understands the business is also involved in
+            building the solution.
           </h2>
         </div>
 
