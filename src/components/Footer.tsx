@@ -65,7 +65,7 @@ const Footer = () => {
           color: "rgba(245,243,238,0.4)",
           margin: 0,
         }}>
-          Osogbo, Nigeria — © {new Date().getFullYear()}
+          Custom Web Developer & Product Studio — Osogbo, Nigeria — © {new Date().getFullYear()}
         </p>
       </div>
     </footer>

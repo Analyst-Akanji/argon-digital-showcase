@@ -53,7 +53,7 @@ const About = () => {
 
           <img
             src={founderPhoto}
-            alt="Emmanuel Ibitowa, Founder of Argon Industries"
+            alt="Emmanuel Ibitowa, Founder of Argon Industries — custom web developer in Osogbo, Nigeria"
             style={{
               width: "220px",
               height: "220px",
