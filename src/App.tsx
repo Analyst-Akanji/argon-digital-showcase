@@ -13,6 +13,9 @@ import AdminLeads from "./pages/AdminLeads.tsx";
 // small — this matters a lot on 3G/4G.
 const Portfolio = lazy(() => import("./pages/Portfolio.tsx"));
 const Demos = lazy(() => import("./pages/Demos.tsx"));
+const Terms = lazy(() => import("./pages/legal/Terms.tsx"));
+const Privacy = lazy(() => import("./pages/legal/Privacy.tsx"));
+const RefundPolicy = lazy(() => import("./pages/legal/RefundPolicy.tsx"));
 
 const queryClient = new QueryClient();
 
@@ -28,6 +31,9 @@ const App = () => (
             <Route path="/admin/leads" element={<AdminLeads />} />
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/demos" element={<Demos />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/refund-policy" element={<RefundPolicy />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>

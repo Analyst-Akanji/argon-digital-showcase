@@ -1,4 +1,11 @@
+import { Link } from "react-router-dom";
 import Logo from "./Logo";
+
+const LEGAL_LINKS = [
+  { to: "/terms", label: "Terms of Service" },
+  { to: "/privacy", label: "Privacy Policy" },
+  { to: "/refund-policy", label: "Refund & Cancellation Policy" },
+];
 
 const Footer = () => {
   return (
@@ -67,6 +74,31 @@ const Footer = () => {
         }}>
           Custom Web Developer & Product Studio — Osogbo, Nigeria — © {new Date().getFullYear()}
         </p>
+      </div>
+
+      <div style={{
+        maxWidth: "1200px",
+        margin: "24px auto 0",
+        paddingTop: "24px",
+        borderTop: "1px solid rgba(255,255,255,0.05)",
+        display: "flex",
+        flexWrap: "wrap",
+        gap: "12px 28px",
+      }}>
+        {LEGAL_LINKS.map((link) => (
+          <Link
+            key={link.to}
+            to={link.to}
+            style={{
+              fontFamily: "JetBrains Mono, monospace",
+              fontSize: "11px",
+              color: "rgba(245,243,238,0.5)",
+              textDecoration: "none",
+            }}
+          >
+            {link.label}
+          </Link>
+        ))}
       </div>
     </footer>
   );
